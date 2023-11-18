@@ -1,7 +1,10 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+<P>既に登録済みの方</P><br />
+  <p><%= link_to "こちら", new_session_path(resource_name) %>からログインしてください</p><br />
+
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+<P>会員登録がお済みでない方</P><br />
+  <p><%= link_to "こちら", new_registration_path(resource_name) %>から新規登録を行ってください。</p><br />
 <% end %>
