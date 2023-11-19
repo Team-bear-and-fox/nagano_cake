@@ -1,2 +1,39 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<h1>商品新規登録</h1>
+<%= form_with model:item, local:true do |f| %>
+
+  <div>
+    <%= form.label :商品画像 %>
+    <%= form.text_field :title %>
+  </div>
+
+　<div>
+    <%= form.label :商品名 %>
+    <%= form.text_field :title %>
+  </div>
+  
+  <div>
+    <%= form.label : %>
+    <%= form.text_field :author %>
+  </div>
+
+
+  <div>
+    <%= form.label :genre %>
+    <%= form.select :genre, ['小説', 'プログラミング', 'ビジネス'], {include_blank: '---'} %>
+  </div>
+ 
+  <p>商品画像</p>
+  <%= f.file_field :image, accept: "image/*" %>
+  <p>商品名</p>
+  <%= f.text_field :name %>
+  <p>商品説明</p>
+  <%= f.text_area :explanation %>
+  <p>ジャンル</p>
+  
+  <p>税抜価格</p>
+  <%= f.text_field :value %>円
+  <p>販売ステータス</p>
+  
+  <%= f.submit '新規登録'%>
+<% end %>
+
