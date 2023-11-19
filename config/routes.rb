@@ -8,17 +8,18 @@ Rails.application.routes.draw do
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'public/homes#top'
+  get 'home/about'=>'public/homes#about'
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 
   resources :orders, only: [:new, :create, :index, :show]do
     collection do
-      post 'confilm'
+      post 'confirm'
       get 'complete'
     end
   end
   resource :customer, only: [:show, :edit, :update]do
 
-    get 'confilm'
+    get 'confirm'
     patch 'withdraw'
   end
 
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only:[:index, :show,]
+  resources :items, only:[:index, :show]
 
   namespace :admin do
     get "admin" => 'homes#top'
