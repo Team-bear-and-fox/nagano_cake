@@ -12,7 +12,17 @@ class Public::SessionsController < Devise::SessionsController
     home_about_path
   end
 
+  private
   
+  def customer_state
+    customer = Customer.find_by(email: params[:customer][:email])
+    # もしcustomerの中にemailが一致するデータが無ければこの処理を終了する
+    return if customer.nil?
+    # emailの一致するcustomerに対してパスワードが一致しない場合この処理を終了する
+    return unless customer.valid_password?(params[:customer][:password])
+    return if customer.is_active
+    redirect_to new_customer_session_path
+  end
 
 
 

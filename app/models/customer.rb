@@ -14,10 +14,5 @@ class Customer < ApplicationRecord
   validates :postal_code, presence: true, numericality: {only_integer: true}, length: { is: 7 }
   validates :address, presence: true, uniqueness: true
   
-  
-    
-  # def active_for_authentication?
-  #   super && (is_active == tlue)
-  # end
-  
+
 end

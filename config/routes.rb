@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
  scope module: :public do
   resources :items, only:[:index, :show]
-  resource :customer, only: [:show, :edit, :update]do
+  resource :customer, only: [:show, :update]do
+   get 'information/edit' => 'customers#edit'
    get 'confirm' => 'customers#confirm'
    patch 'withdraw' => 'customers#withdraw'
    get 'mypage'=> 'customers#show'
