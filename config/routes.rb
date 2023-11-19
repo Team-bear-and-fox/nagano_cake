@@ -18,11 +18,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :customer, only: [:update]do
-    get 'mypage' => 'public/customers#show'
-    get 'information/edit' => 'public/customers#edit'
-    get 'confirm' => 'public/customers#'
-    patch 'withdraw'
+
+  scope module: :public do
+    resource :customer, only: [:update]do
+      get 'mypage' => 'customers#show'
+      get 'information/edit' => 'customers#edit'
+      get 'confirm' => 'customers#confirm'
+      patch 'withdraw' => 'customers#withdraw'
+    end
   end
 
   resources :cart_items, only:[:index, :update, :destroy_all, :create]do
