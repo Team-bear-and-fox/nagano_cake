@@ -2,14 +2,12 @@ class Admin::ItemsController < ApplicationController
   
   def new
     @item = Item.new
-    @genre = Genre.pluck(:genre_id)
-    @genre = 
   end 
   
   def create
-    item = Item.new(item_params)
-    item.save
-    redirect_to admin_item_path
+    @item = Item.new(item_params)
+    @item.save
+    redirect_to admin_item_path(@item.id)
   end
   
   def index

@@ -1,27 +1,5 @@
 <h1>商品新規登録</h1>
-<%= form_with model:item, local:true do |f| %>
-
-  <div>
-    <%= form.label :商品画像 %>
-    <%= form.text_field :title %>
-  </div>
-
-　<div>
-    <%= form.label :商品名 %>
-    <%= form.text_field :title %>
-  </div>
-  
-  <div>
-    <%= form.label : %>
-    <%= form.text_field :author %>
-  </div>
-
-
-  <div>
-    <%= form.label :genre %>
-    <%= form.select :genre, ['小説', 'プログラミング', 'ビジネス'], {include_blank: '---'} %>
-  </div>
- 
+<%= form_with model:@item, url: admin_items_path, local:true do |f| %>
   <p>商品画像</p>
   <%= f.file_field :image, accept: "image/*" %>
   <p>商品名</p>
@@ -29,10 +7,15 @@
   <p>商品説明</p>
   <%= f.text_area :explanation %>
   <p>ジャンル</p>
-  
+  <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択してください" %>
   <p>税抜価格</p>
   <%= f.text_field :value %>円
   <p>販売ステータス</p>
+  <%= f.radio_button :status, true %>
+  <%= f.label :"販売中" %>
+  
+  <%= f.radio_button :status, false %>
+  <%= f.label :"販売停止中" %>
   
   <%= f.submit '新規登録'%>
 <% end %>
