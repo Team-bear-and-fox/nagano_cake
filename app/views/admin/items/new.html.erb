@@ -1,5 +1,5 @@
 <h1>商品新規登録</h1>
-<%= form_with model:@item, url: admin_items_path, local:true do |f| %>
+<%= form_with model: @item, url: admin_items_path, local:true do |f| %><!--:の横にスペース>
   <p>商品画像</p>
   <%= f.file_field :image, accept: "image/*" %>
   <p>商品名</p>
@@ -13,10 +13,10 @@
   <p>販売ステータス</p>
   <%= f.radio_button :status, true %>
   <%= f.label :"販売中" %>
-  
+
   <%= f.radio_button :status, false %>
   <%= f.label :"販売停止中" %>
-  
+
   <%= f.submit '新規登録'%>
 <% end %>
 

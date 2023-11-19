@@ -28,8 +28,10 @@ Rails.application.routes.draw do
       delete 'destroy_all'
     end
   end
-
-  resources :items, only:[:index, :show]
+  namespace :public do
+    #resources :items, only:[:index, :show]
+    get 'items' => 'items#index'
+  end
 
   namespace :admin do
     get "admin" => 'homes#top'
