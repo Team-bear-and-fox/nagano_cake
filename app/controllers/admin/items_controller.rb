@@ -18,9 +18,13 @@ class Admin::ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
   
+  def get_image
+    image
+  end
+  
   private
   def item_params
-    params.require(:item).permit(:name, :explanation, :value, :genre_id, :is_on_sale)
+    params.require(:item).permit(:name, :explanation, :value, :genre_id, :is_on_sale, :image)
   end
   
 end
