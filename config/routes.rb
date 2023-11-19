@@ -28,7 +28,7 @@ Rails.application.routes.draw do
       delete 'destroy_all'
     end
   end
-  
+
   resources :items, only:[:index, :show]
 
   namespace :admin do
