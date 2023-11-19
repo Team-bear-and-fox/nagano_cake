@@ -16,8 +16,8 @@ class Customer < ApplicationRecord
   validates :phone_number, presence: true, uniqueness: true
   
     
-  def active_for_authentication?
-    super && (is_active == tlue)
-  end
+  # def active_for_authentication?
+  #   super && (is_active == tlue)
+  # end
   
 end

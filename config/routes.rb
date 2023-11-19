@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resource :customer, only: [:update]do
     get 'mypage' => 'public/customers#show'
     get 'information/edit' => 'public/customers#edit'
-    get 'confilm'
+    get 'confirm' => 'public/customers#'
     patch 'withdraw'
   end
 
