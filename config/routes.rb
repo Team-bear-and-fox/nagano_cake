@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only:[:index, :show,]
+  resources :items, only:[:index, :show]
 
   namespace :admin do
     get "admin" => 'homes#top'

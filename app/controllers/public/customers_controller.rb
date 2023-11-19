@@ -10,8 +10,18 @@ class Public::CustomersController < ApplicationController
   
   def update
     customer = current_customer
-    customer.update
-    redirect_to mypage_customer_path(customer)
+    if customer.update
+      redirect_to mypage_customer_path(customer)
+    else
+      render :edit
+      
+  end
+  
+  def withdraw
+    customer = current_customer
+    customer.update(is_active: false)
+    reset_session
+    redirect_to root_path
   end
   
 end
