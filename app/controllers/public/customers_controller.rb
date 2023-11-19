@@ -14,7 +14,7 @@ class Public::CustomersController < ApplicationController
       redirect_to mypage_customer_path(customer)
     else
       render :edit
-      
+    end
   end
   
   def withdraw

@@ -8,14 +8,16 @@ Rails.application.routes.draw do
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'public/homes#top'
+  get 'home/about'=>'public/homes#about'
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 
   resources :orders, only: [:new, :create, :index, :show]do
     collection do
-      post 'confilm'
+      post 'confirm'
       get 'complete'
     end
   end
+
   resource :customer, only: [:update]do
     get 'mypage' => 'public/customers#show'
     get 'information/edit' => 'public/customers#edit'
