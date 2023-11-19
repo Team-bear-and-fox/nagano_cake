@@ -1,21 +1,9 @@
-<h1>商品一覧</h1>
-<table>
-  <thead>
-    <tr>
-      <th>商品ID</th>
-      <th>商品名</th>
-      <th>税抜価格</th>
-      <th>ジャンル</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-<%= @items.each do |item| %>
-  <tbody>
-    <td><%= item.id %></td>
-    <td><%= item.name %></td>
-    <td><%= item.value %></td>
-    <td><%= item.genre_id %></td>
-    <td><%= item.status %></td>
-  </tbody>
+<h1>商品一覧(全<%= @items.count %>件)</h1>
+
+<% @items.each do |item| %>
+  <%= link_to item_path(item.id) do %>
+  <%= image_tag item.get_image %><% end %>
+  <p><%= item.name %></p>
+  <p>￥<%= item.add_tax_price.to_s(:delimited) %>円</p>
 <% end %>
-</table>
+<%= paginate @items %><!--変わるかも-->

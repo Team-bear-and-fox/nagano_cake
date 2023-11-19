@@ -2,5 +2,13 @@
   <%= image_tag @item.get_image %>
   <p><%= @item.name %></p>
   <p><%= @item.explanation %></p>
-  <p><%= @item.value %></p>
+  <p>￥<%= @item.add_tax_price.to_s(:delimited) %>円</p>
+  <table>
+   <tbody>
+     <tr>
+       <td></td>
+       <td><%= link_to "カートに入れる" , cart_items_path, method: :post %></td>
+     </tr>
+   </tbody>
+ </table>
 </div>
