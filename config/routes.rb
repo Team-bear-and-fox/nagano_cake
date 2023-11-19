@@ -31,8 +31,8 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
 
+   get "admin" => 'admin/homes#top'
    namespace :admin do
-    get "admin" => 'homes#top'
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]

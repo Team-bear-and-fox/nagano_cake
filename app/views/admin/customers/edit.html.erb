@@ -1,2 +1,62 @@
-<h1>Customers#edit</h1>
-<p>Find me in app/views/customers/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2><%= @customer.last_name %><%=@customer.first_name %>さんの会員編集</h2>
+      <%= form_with model: @customer, url: admin_customer_path, local: true do |f| %>
+        <table class="table-borderless">
+          <thead>
+            <tr>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>会員ID</td>
+              <td><%= @customer.id %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :氏名 %></td>
+              <td> <%= f.text_field :last_name, autofocus: true %>  <%= f.text_field :first_name, autofocus: true %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :フリガナ %></td>
+              <td><%= f.text_field :last_name_kana, autofocus: true %> <%= f.text_field :first_name_kana, autofocus: true %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :郵便番号 %></td>
+              <td><%= f.text_field :postal_code, autofocus: true %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :住所 %></td>
+              <td><%= f.text_field :address, autofocus: true %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :電話番号 %></td>
+              <td><%= f.text_field :phone_number, autofocus: true %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :メールアドレス %></td>
+              <td><%= f.text_field :email, autofocus: true %></td>
+            </tr>
+
+            <tr>
+              <td><%= f.label :会員ステータス %></td>
+              <td>
+                <%= f.radio_button :is_active, true %>
+                <%= f.label :有効 %>
+                <%= f.radio_button :is_active, false %>
+                <%= f.label :退会 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.submit "変更を保存" ,class: 'btn btn-success' %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
+
