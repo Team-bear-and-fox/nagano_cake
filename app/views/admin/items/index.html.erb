@@ -1,4 +1,5 @@
 <h1>商品一覧</h1>
+<%= link_to "新規登録", new_admin_item_path %>
 <table>
   <tbody>
     <tr>
@@ -11,11 +12,19 @@
     <% @items.each do |item| %>
     <tr>
       <td><span><%= item.id %></span></td>
-      <td><span><%= item.name %></span></td>
+      <td>
+        <%= link_to admin_item_path(item.id) do %>
+          <span><%= item.name %></span>
+        <% end %>
+      </td>
       <td><span><%= item.value %></span></td>
       <td><span><%= item.genre.name %></span></td>
-      <td><span><%= item.is_on_sale %></span></td>
+      <td>
+        <%= "販売中" if item.is_on_sale == true %>
+        <%= "販売停止中" if item.is_on_sale == false %>
+      </td>
     </tr>
     <% end %>
   </tbody>
 </table>
+<%= paginate @items %>

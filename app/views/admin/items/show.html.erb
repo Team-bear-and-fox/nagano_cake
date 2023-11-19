@@ -17,12 +17,18 @@
       </tr>
        <tr>
         <th><p>税込価格（税抜価格）</p></th>
-        <td>（<%= @item.value %>）円</td>
+        <td>
+          <%= @item.add_tax_value %>円 （<%= @item.value %>円）
+        </td>
       </tr>
        <tr>
         <th><p>販売ステータス</p></th>
-        <td><%= @item.is_on_sale %></td>
+        <td>
+          <%= "販売中" if @item.is_on_sale == true %>
+          <%= "販売停止中" if @item.is_on_sale == false %>
+        </td>
       </tr>
     </tbody>
   </table>
+  <%= link_to "編集する", edit_admin_item_path(@item.id) %>
 </div>

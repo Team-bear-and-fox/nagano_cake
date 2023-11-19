@@ -1,5 +1,5 @@
 <h1>商品新規登録</h1>
-<%= form_with model:@item, url: admin_items_path, local:true do |f| %>
+<%= form_with model: @item, url: admin_items_path, local:true do |f| %>
   <table>
     <tbody>
       
@@ -26,18 +26,15 @@
       <tr>
         <th><p>販売ステータス</p></th>
         <td>
-          <%= f.radio_button :status, true %>
+          <%= f.radio_button :is_on_sale, true %>
           <%= f.label :"販売中" %>
           
-          <%= f.radio_button :status, false %>
+          <%= f.radio_button :is_on_sale, false %>
           <%= f.label :"販売停止中" %>
         </td>
       </tr>
-      <tr>
-        <td><%= f.submit '新規登録'%></td>
-      </tr>
-      
     </tbody>
   </table>
+  <%= f.submit '新規登録'%>
 <% end %>
 
