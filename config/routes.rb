@@ -1,27 +1,4 @@
 Rails.application.routes.draw do
-  get 'oreders/show'
-  get 'customers/index'
-  get 'customers/show'
-  get 'customers/edit'
-  get 'genres/index'
-  get 'genres/edit'
-  get 'items/index'
-  get 'items/new'
-  get 'items/show'
-  get 'items/edit'
-  get 'homes/top'
-  get 'addresses/index'
-  get 'addresses/edit'
-  get 'orders/new'
-  get 'orders/confirm'
-  get 'orders/complete'
-  get 'orders/index'
-  get 'orders/show'
-  get 'cart_items/index'
-  get 'customers/show'
-  get 'customers/edit'
-  get 'customers/confirm'
-  get 'customers/withdraw'
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -31,17 +8,18 @@ Rails.application.routes.draw do
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'public/homes#top'
+  get 'home/about'=>'public/homes#about'
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 
   resources :orders, only: [:new, :create, :index, :show]do
     collection do
-      post 'confilm'
+      post 'confirm'
       get 'complete'
     end
   end
   resource :customer, only: [:show, :edit, :update]do
 
-    get 'confilm'
+    get 'confirm'
     patch 'withdraw'
   end
 
@@ -51,7 +29,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only:[:index, :show,]
+  resources :items, only:[:index, :show]
 
   namespace :admin do
     get "admin" => 'homes#top'

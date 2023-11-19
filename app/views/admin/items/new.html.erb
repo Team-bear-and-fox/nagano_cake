@@ -1,2 +1,22 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<h1>商品新規登録</h1>
+<%= form_with model:@item, url: admin_items_path, local:true do |f| %>
+  <p>商品画像</p>
+  <%= f.file_field :image, accept: "image/*" %>
+  <p>商品名</p>
+  <%= f.text_field :name %>
+  <p>商品説明</p>
+  <%= f.text_area :explanation %>
+  <p>ジャンル</p>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択してください" %>
+  <p>税抜価格</p>
+  <%= f.text_field :value %>円
+  <p>販売ステータス</p>
+  <%= f.radio_button :status, true %>
+  <%= f.label :"販売中" %>
+  
+  <%= f.radio_button :status, false %>
+  <%= f.label :"販売停止中" %>
+  
+  <%= f.submit '新規登録'%>
+<% end %>
+
