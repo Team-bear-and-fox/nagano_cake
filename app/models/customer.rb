@@ -10,8 +10,9 @@ class Customer < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name_kana, presence: true
   validates :first_name_kana, presence: true
-  validates :phone_number, presence: true, uniqueness: true
-  validates :postal_code, presence: true, uniqueness: true
+  validates :phone_number, presence: true, uniqueness: true, numericality: {only_integer: true}, length: { in: 10..11 }
+  validates :postal_code, presence: true, numericality: {only_integer: true}, length: { is: 7 }
   validates :address, presence: true, uniqueness: true
-  validates :phone_number, presence: true, uniqueness: true
+  
+
 end
