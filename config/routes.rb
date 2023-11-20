@@ -18,6 +18,7 @@ Rails.application.routes.draw do
    patch 'withdraw' => 'customers#withdraw'
    get 'mypage'=> 'customers#show'
   end
+
   resources :cart_items, only:[:index, :update, :destroy, :create]do
    collection do
     delete 'destroy_all'
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
     post 'confirm'
     get 'complete'
    end
+
   end
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
  end
