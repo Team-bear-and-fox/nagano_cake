@@ -1,25 +1,42 @@
 <h1>配送先登録/一覧</h1>
 
-<table>
-  <%= form_with model: @address do |f| %>
+<%= form_with model: @address do |f| %>
+  <table>
+    <tbody>
+      <tr>
+        <td>郵便番号(ハイフンなし)</td>
+        <td><%= f.text_field :postal_code, placeholder: "0000000" %></td>
+      </tr>
+      <tr>
+        <td>住所</td>
+        <td><%= f.text_field :address, placeholder: "東京都新宿区新宿〇丁目〇−〇〇 成信ビル 〇階" %></td>
+      </tr>
+      <tr>
+        <td>宛名</td>
+        <td><%= f.text_field :name, placeholder: "へのへのもへじ" %></td>
+        <td><%= f.submit '新規登録' %></td>
+      </tr>
+    </tbody>
+  </table>
+ <% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>郵便番号</th>
+      <th>住所</th>
+      <th>宛名</th>
+      <th></th>
+    </tr>
+  </thead>
   <tbody>
-    <tr>
-      <td>郵便番号(ハイフンなし)</td>
-      <td><%= f.text_field :postal_code %></td>
-    </tr>
-    <tr>
-      <td>住所</td>
-      <td><%= f.text_field :address %></td>
-    </tr>
-    <tr>
-      <td>宛名</td>
-      <td><%= f.text_field :name %></td>
-      <td><%= f.submit '新規登録' %></td>
-    </tr>
+    <% @addresses.each do |addresses| %>
+      <tr>
+        <td><%= addresses.postal_code %></td>
+        <td><%= addresses.address %></td>
+        <td><%= addresses.name %></td>
+        <td></td>
+      </tr>
+    <% end %>
   </tbody>
-  <% end %>
-</table>
-<table>
-  <colgroup span="4">
-  </colgroup>
 </table>
