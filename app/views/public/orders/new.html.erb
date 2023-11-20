@@ -1,12 +1,44 @@
 <h3>注文情報入力</h3>
 
+<%= form_with model: @order, url: confirm_orders_path do |f| %>
 
+  <b>支払方法</b><br>
 
+  <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+  <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %><br>
 
+  <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+  <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer] %><br><br>
 
-<b>支払方法</b>
+  <b>お届け先</b><br>
+  <%= f.radio_button :address_type, "member_address" %>
+  <%= f.label :address_type, "ご自身の住所" %><br>
+  <%#= current_customer.address_display %>様<br>
+  <!--↑ここがこの記述でよいか謎　アドレス機能追加後に確認-->
 
+  <%= f.radio_button :address_type, "registered_address" %>
+  <%= f.label :address_type, "登録済住所から選択" %><br>
+  <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>様<br>
 
+  <%= f.radio_button :address_type, "create_new_address" %>
+  <%= f.label :address_type, "新しいお届け先" %><br>
 
+  <table>
+    <tr>
+      <td>郵便番号(ハイフンなし)</td>
+      <td><%= f.text_field :new_postal_code %></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>住所</td>
+      <td colspan="2"><%= f.text_field :new_address %></td>
+    </tr>
+    <tr>
+      <td>宛名</td>
+      <td><%= f.text_field :new_name %>様</td>
+      <td></td>
+    </tr>
+  </table>
 
-<b>お届け先</b>
+  <%= f.submit "確認画面へ進む" , class: "btn btn-primary" %>
+<% end %>
