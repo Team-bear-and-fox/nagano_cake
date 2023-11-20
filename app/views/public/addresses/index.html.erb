@@ -1,5 +1,25 @@
 <h1>配送先登録/一覧</h1>
 
 <table>
-
+  <%= form_with model: @address do |f| %>
+  <tbody>
+    <tr>
+      <td>郵便番号(ハイフンなし)</td>
+      <td><%= f.text_field :postal_code %></td>
+    </tr>
+    <tr>
+      <td>住所</td>
+      <td><%= f.text_field :address %></td>
+    </tr>
+    <tr>
+      <td>宛名</td>
+      <td><%= f.text_field :name %></td>
+      <td><%= f.submit '新規登録' %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+<table>
+  <colgroup span="4">
+  </colgroup>
 </table>
