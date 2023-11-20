@@ -1,0 +1,14 @@
+<div>
+  <%= image_tag @item.get_image, :size =>'100x100' %>
+  <p><%= @item.name %></p>
+  <p><%= @item.explanation %></p>
+  <p>￥<%= @item.add_tax_price.to_s(:delimited) %>円(税込)</p>
+  <table>
+   <tbody>
+     <tr>
+       <td><%= select("post", "amount", [*1..10],{include_blank: "個数選択"}) %></td>
+       <td><%= link_to "カートに入れる" , cart_items_path, method: :post %></td>
+     </tr>
+   </tbody>
+ </table>
+</div>
