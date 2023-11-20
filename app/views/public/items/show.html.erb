@@ -2,7 +2,7 @@
   <%= image_tag @item.get_image, :size =>'100x100' %>
   <p><%= @item.name %></p>
   <p><%= @item.explanation %></p>
-  <p>￥<%= @item.add_tax_price.to_s(:delimited) %>円(税込)</p>
+  <p>￥<%= @item.add_tax_value.to_s(:delimited) %>円(税込)</p>
   <table>
    <tbody>
      <tr>

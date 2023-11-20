@@ -2,7 +2,7 @@
 <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
   <table>
     <tbody>
-      
+
       <tr>
         <th><p>商品画像</p></th>
         <td><%= f.file_field :image, accept: "image/*" %></td>
@@ -28,7 +28,7 @@
         <td>
           <%= f.radio_button :is_on_sale, true %>
           <%= f.label :"販売中" %>
-          
+
           <%= f.radio_button :is_on_sale, false %>
           <%= f.label :"販売停止中" %>
         </td>
