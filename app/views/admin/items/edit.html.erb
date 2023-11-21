@@ -1,5 +1,5 @@
 <h1>商品編集</h1>
-
+<%= render 'error_messages', item: @item %>
 <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
   <table>
     <tbody>
