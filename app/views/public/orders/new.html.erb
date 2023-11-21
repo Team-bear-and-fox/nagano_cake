@@ -11,10 +11,12 @@
   <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer] %><br><br>
 
   <b>お届け先</b><br>
-  <%= f.radio_button :address_type, "member_address" %>
+  
+  <!--ラベルクリックで選択できない問題発生中-->
+  
+  <%= f.radio_button :address_type, "customer_address" %>
   <%= f.label :address_type, "ご自身の住所" %><br>
-  <%#= current_customer.address_display %>様<br>
-  <!--↑ここがこの記述でよいか謎　アドレス機能追加後に確認-->
+  〒<%= current_customer.postal_code %>　<%= current_customer.address %>　<%= current_customer.last_name %><%= current_customer.first_name %>様<br>
 
   <%= f.radio_button :address_type, "registered_address" %>
   <%= f.label :address_type, "登録済住所から選択" %><br>

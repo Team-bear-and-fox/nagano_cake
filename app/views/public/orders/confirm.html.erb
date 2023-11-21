@@ -8,11 +8,37 @@
     <th>小計</th>
   </tr>
   
-  <%= @cart_items.each do |cart_item| %>途中
+  <%#= @cart_items.each do |cart_item| %>途中
+    <tr>
+      <td><%= image_tag cart_item.item.image, saze: "100x100" %><%= cart_item.item.name %></td>
+      <td><%= cart_item.item.value %></td>
+      <td><%= cart_item.item.amount %></td>
+      <td><%= cart_item.item.value * cart_item.item.amount %></td>
+      <!-- ↑エラーになったら".item"の回数を確認 -->
+    </tr>
+  <%# end %>
+</table>
+
+<table>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <th>送料</th>
+    <td><%= @postage %></td>
+  </tr>
+  <tr>
+    <th>商品合計</th>
+    <td><%= @cart_items_total %></td>
+  </tr>
+  <tr>
+    <th>請求金額</th>
+    <td><%= @payment_total %></td>
   </tr>
 </table>
+
+<b>支払い方法</b>　<%= @payment_method %><br>
+<!-- ↑表示出来なかったらview上で0or1の条件分岐させる -->
+
+<b>お届け先</b>　〒<%= @selected_address %>様
+
+<%= form_with url: orders_path, method: :post do %>
+
+  
