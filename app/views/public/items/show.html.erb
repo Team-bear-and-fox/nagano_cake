@@ -1,14 +1,21 @@
-<div>
-  <%= image_tag @item.get_image, :size =>'100x100' %>
-  <p><%= @item.name %></p>
-  <p><%= @item.explanation %></p>
-  <p>￥<%= @item.add_tax_value.to_s(:delimited) %>円(税込)</p>
-  <table>
-   <tbody>
-     <tr>
-       <td><%= select("post", "amount", [*1..10],{include_blank: "個数選択"}) %></td>
-       <td><%= link_to "カートに入れる" , cart_items_path, method: :post %></td>
-     </tr>
-   </tbody>
- </table>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= form_with model: @cart_items, url: cart_items_path , method: :post do |f| %>
+      <%= image_tag @item.get_image, :size =>'100x100' %>
+      <p><%= @item.name %></p>
+      <p><%= @item.explanation %></p>
+      <p>￥<%= @item.add_tax_value.to_s(:delimited) %>円(税込)</p>
+      <table>
+       <tbody>
+         <tr>
+               <%= f.hidden_field :'cart_item[item_id]', :value => @item.id %>
+           <td><%= f.select :'cart_item[amount]', *[1..10],include_blank: "個数選択" %></td>
+           <td><%= f.submit "カートに入れる" , class:"btn btn-info" %></td>
+         </tr>
+       </tbody>
+     </table>
+     <% end %>
+    </div>
+  </div>
 </div>
