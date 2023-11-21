@@ -14,9 +14,17 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="/"><span>Logo</span></a>
-          <div class="collapse navbar-collapse">
-            <ul class="navbar-nav  ml-auto">
+          <a href="/" class="navbar-brand">Logo</a>
+            <button class="navbar-toggler" type="button" 
+              data-toggle="collapse" 
+              data-target="#navbarNavDropdown" 
+              aria-controls="navbarNavDropdown"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
                 <li>
                   <%= link_to"マイページ",mypage_customer_path,class: 'nav-link' %>
@@ -60,8 +68,8 @@
                   <%= link_to"ログイン",new_customer_session_path,class: 'nav-link' %>
                 </li>
               <% end %>
-            </ul>
-          </div>
+              </ul>
+            </div>
         </div>
       </nav>
     </header>
