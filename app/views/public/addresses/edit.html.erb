@@ -1,2 +1,29 @@
-<h1>Addresses#edit</h1>
-<p>Find me in app/views/addresses/edit.html.erb</p>
+<h1>配送先編集</h1>
+<% if @address.errors.any? %>
+ <%= @address.errors.count %>県のエラーが発生しました
+ <ul>
+   <% @address.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+   <% end %>
+ </ul>
+<% end %>
+
+<%= form_with model: @address do |f| %>
+  <table>
+    <tbody>
+      <tr>
+        <td>郵便番号(ハイフンなし)</td>
+        <td><%= f.text_field :postal_code, placeholder: "0000000" %></td>
+      </tr>
+      <tr>
+        <td>住所</td>
+        <td><%= f.text_field :address, placeholder: "東京都新宿区新宿〇丁目〇−〇〇 成信ビル 〇階" %></td>
+      </tr>
+      <tr>
+        <td>宛名</td>
+        <td><%= f.text_field :name, placeholder: "へのへのもへじ" %></td>
+        <td><%= f.submit '変更内容を保存' %></td>
+      </tr>
+    </tbody>
+  </table>
+ <% end %>
