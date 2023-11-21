@@ -10,6 +10,8 @@ Rails.application.routes.draw do
  root to: 'public/homes#top'
  get 'home/about'=>'public/homes#about'
 
+
+
  scope module: :public do
   resources :items, only:[:index, :show]
   resource :customer, only: [:show, :update]do
@@ -33,9 +35,9 @@ Rails.application.routes.draw do
   end
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
  end
- 
-  get "admin" => 'homes#top'
-  namespace :admin do
+
+ get "admin" => 'admin/homes#top'
+ namespace :admin do
   resources :items, only: [:index, :new, :create, :show, :edit, :update]
   resources :genres, only: [:index, :create, :edit, :update]
   resources :customers, only: [:index, :show, :edit, :update]
