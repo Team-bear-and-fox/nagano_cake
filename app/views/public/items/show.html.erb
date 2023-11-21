@@ -10,7 +10,7 @@
        <tbody>
          <tr>
                <%= f.hidden_field :'cart_item[item_id]', :value => @item.id %>
-           <td><%= f.select :'cart_item[amount]', *[1..10],include_blank: "個数選択" %></td>
+           <td><%= f.select :'cart_item[amount]', *[1..20],include_blank: "個数選択" %></td>
            <td><%= f.submit "カートに入れる" , class:"btn btn-info" %></td>
          </tr>
        </tbody>
