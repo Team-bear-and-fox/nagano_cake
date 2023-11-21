@@ -3,7 +3,6 @@
 <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
   <table>
     <tbody>
-
       <tr>
         <th><p>商品画像</p></th>
         <td><%= f.file_field :image, accept: "image/*" %></td>
