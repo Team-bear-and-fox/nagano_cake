@@ -1,4 +1,12 @@
 <h1>配送先登録/一覧</h1>
+<% if @address.errors.any? %>
+ <%= @address.errors.count %>県のエラーが発生しました
+ <ul>
+   <% @address.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+   <% end %>
+ </ul>
+<% end %>
 
 <%= form_with model: @address do |f| %>
   <table>
@@ -35,7 +43,7 @@
         <td><%= addresses.postal_code %></td>
         <td><%= addresses.address %></td>
         <td><%= addresses.name %></td>
-        <td></td>
+        <td><%= link_to '編集する', edit_address_path(addresses.id), class: "btn btn-success" %><%= link_to '削除する', address_path(addresses.id), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
       </tr>
     <% end %>
   </tbody>
