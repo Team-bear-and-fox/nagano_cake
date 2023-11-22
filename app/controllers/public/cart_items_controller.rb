@@ -19,8 +19,12 @@ class Public::CartItemsController < ApplicationController
       @cart_item.delete
     end
   end
-    @cart_item.save
-    redirect_to cart_items_path
+    if @cart_item.save
+       flash[:notice] = "カートに商品が追加されました。"
+      redirect_to cart_items_path
+    else
+      render :index
+    end 
   end
   def update
     
