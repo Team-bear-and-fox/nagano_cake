@@ -9,7 +9,7 @@
     <th>ステータス</th>
     <th>注文詳細</th>
   </tr>
-  
+
   <% @orders.each do |order| %>
     <tr>
       <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
