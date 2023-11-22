@@ -4,7 +4,6 @@ class Admin::CustomersController < ApplicationController
   end
   def index
     @customers = Customer.page(params[:page]).per(2)
-    # @customers=Customer.all
   end
   def edit
     @customer=Customer.find(params[:id])
