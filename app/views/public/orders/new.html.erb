@@ -16,11 +16,12 @@
 
   <%= f.radio_button :address_type, "customer_address" %>
   <%= f.label :address_type, "ご自身の住所" %><br>
-  〒<%= current_customer.postal_code %>　<%= current_customer.address %>　<%= current_customer.last_name %><%= current_customer.first_name %>様<br>
+  〒<%= current_customer.postal_code %>　<%= current_customer.address %><br>
+  <%= current_customer.last_name %><%= current_customer.first_name %>様<br>
 
   <%= f.radio_button :address_type, "registered_address" %>
-  <%= f.label :address_type, "登録済住所から選択" %><br>
-  <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display), include_blank: "選択してください" %><br>
+  <%= f.label :address_type, "登録済み住所から選択" %><br>
+  <%= f.select :address_id, options_from_collection_for_select(@customer.addresses, :id, :address_display), include_blank: "選択してください" %><br>
 
   <%= f.radio_button :address_type, "create_new_address" %>
   <%= f.label :address_type, "新しいお届け先" %><br>

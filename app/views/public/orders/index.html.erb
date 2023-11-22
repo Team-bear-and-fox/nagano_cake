@@ -1,6 +1,6 @@
 <h3>注文履歴一覧</h3>
 
-<table>
+<table class="table">
   <tr>
     <th>注文日</th>
     <th>配送先</th>
@@ -10,14 +10,16 @@
     <th>注文詳細</th>
   </tr>
   
-  <%#= @orders.each do |order| %>
+  <% @orders.each do |order| %>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+      <td>〒<%= order.postal_code %><br>
+      <%= order.address %><br>
+      <%= order.name %>様</td>
+      <td>買ったものを表示したい。多くてもずらっと出す？</td>
+      <td><%= order.payment_total %></td>
+      <td><%= order.order_status_i18n %></td>
+      <td><%= link_to "表示する", order_path(order), class: "btn btn-primary" %></td>
     </tr>
-  <%# end %>
+  <% end %>
 </table>
