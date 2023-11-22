@@ -3,6 +3,7 @@ class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
     @customer = current_customer
+    @information = session[:information] || {}
   end
 
   def confirm
@@ -12,7 +13,7 @@ class Public::OrdersController < ApplicationController
     @postage = 800
     @cart_items_total = @cart_items.inject(0) { |sum, item| sum + item.add_sub_total }
     @payment_total = @postage + @cart_items_total
-    @address_type = params[:order][:address_type]
+    # @address_type = params[:order][:address_type]
 
     if params[:order][:address_type] == "customer_address"
       @order.address = @customer.address
@@ -36,6 +37,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    session[:information] = params[:information]
     @order = current_customer.orders.new(order_params)
     @order.save
     current_customer.cart_items.each do |cart_item|
