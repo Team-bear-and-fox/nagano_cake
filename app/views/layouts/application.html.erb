@@ -10,14 +10,14 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="min-height:100vh ;position: relative;padding-bottom:50px;box-sizing:border-box;">
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a href="/" class="navbar-brand">Logo</a>
-            <button class="navbar-toggler" type="button" 
-              data-toggle="collapse" 
-              data-target="#navbarNavDropdown" 
+            <button class="navbar-toggler" type="button"
+              data-toggle="collapse"
+              data-target="#navbarNavDropdown"
               aria-controls="navbarNavDropdown"
               aria-expanded="false"
               aria-label="Toggle navigation">
@@ -74,8 +74,9 @@
       </nav>
     </header>
     <main>
+      <p id="notice"><%= notice %></p>
+      <%= yield %>
     </main>
-    <%= yield %>
     <footer>
       <div class="bg-dark fixed-bottom  ">
         <p class="text-light">nagano_cake</p>
