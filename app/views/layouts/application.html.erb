@@ -10,7 +10,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="min-height:100vh ;position: relative;padding-bottom:50px;box-sizing:border-box;">>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -75,11 +75,11 @@
     </header>
     <main>
     </main>
-    <%= yield %>
-    <footer>
-      <div class="bg-dark fixed-bottom  ">
-        <p class="text-light">nagano_cake</p>
-      </div>
-    </footer>
+     <%= yield %>
+        <footer>
+          <div class="bg-dark fixed-bottom  ">
+            <p class="text-light">nagano_cake</p>
+          </div>
+        </footer>
   </body>
 </html>
