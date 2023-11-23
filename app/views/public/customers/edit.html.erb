@@ -1,5 +1,6 @@
 <h3>会員情報編集</h3>
 
+<%= render 'error_messages', customer: @customer %>
 <%= form_with model: @customer,url: customer_path, method: :patch do |f| %>
 
   <table>
