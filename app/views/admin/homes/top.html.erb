@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-4">
   <div class="row">
     <div class="col">
       <h1>注文履歴一覧</h1>
@@ -20,7 +20,7 @@
                 </td>
               <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
               <td><%= order.order_details.sum(:amount) %></td>
-              <td><%= order.order_status %></td>
+              <td><%= I18n.t("enums.order.order_status.#{order.order_status}") %></td>
             </tr>
           </tbody>
         <% end %>
