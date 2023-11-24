@@ -1,1 +1,74 @@
-<h3>注文履歴詳細</h3>
+<div class="container mt-5">
+  <h5 class="font-weight-bold bg-light w-25 text-center ml-5">注文履歴詳細</h5>
+  <div class="row">
+     <div class="col-6">
+      <table border="1" style="border-collapse: collapse" cellpadding="10">
+      <h6 class="font-weight-bold">注文情報</h6>
+        <tbody>
+          <tr>
+            <td class="bg-light">注文日</td>
+            <td class="w-75"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+          </tr>
+          <tr>
+            <td class="bg-light">配送先</td>
+            <td>〒<%= @order.postal_code %><br>
+                  <%= @order.address %><br>
+                  <%= @order.name %></td>
+          </tr>
+          <tr>
+            <td class="bg-light">支払方法</td>
+            <td><%= @order.payment_method %></td>
+          </tr>
+          <tr>
+            <td class="bg-light">ステータス</td>
+            <td><%= @order.order_status_i18n %></td>
+          </tr>
+        </tbody>
+      </table>
+     </div>
+   <div class="col-6">
+    <table border="1" style="border-collapse: collapse" cellpadding="10">
+      <h6 class="font-weight-bold">請求情報</h6>
+      <tbody>
+        <tr>
+          <td class="bg-light">商品合計</td>
+          <td class="w-75"><%= @total_item_amount %></td>
+        </tr>
+        <tr>
+          <td class="bg-light">配送料</td>
+          <td><%= @order.postage %></td>
+        </tr>
+        <tr>
+          <td class="bg-light font-weight-bold">ご請求額</td>
+          <td><%= @order.payment_total %></td>
+        </tr>
+      </tbody>
+    </table>
+   </div>
+  </div>
+  <div class="row">
+    <div class="col-10">
+    <table border="1" style="border-collapse: collapse" cellpadding="10">
+      <h6 class="font-weight-bold pt-3">注文内容</h6>
+      <thead>
+        <th class="bg-light">商品</th>
+        <th class="bg-light">単価（税込）</th>
+        <th class="bg-light">個数</th>
+        <th class="bg-light">小計</th>
+      </thead>
+      <tbody>
+        <% @order_details.each do |order| %>
+          <tr>
+            <td class="w-50"><%= order.item.name %></td>
+            <td><%= order.item.add_tax_value.to_s(:delimited)%></td>
+            <td><%= order.amount %></td>
+            <td><%= order.add_sub_total %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+   </div>
+  </div>
+ </div>
+</div>
+

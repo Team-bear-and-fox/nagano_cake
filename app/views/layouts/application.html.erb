@@ -10,11 +10,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="min-height:100vh ;position: relative;padding-bottom:50px;box-sizing:border-box;">
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a href="/" class="navbar-brand">Logo</a>
+            <div class= "col-7">
+              <% if customer_signed_in? %>
+               <p class= "text-center text-light pt-3 ml-5">
+                 ようこそ、<%= current_customer.last_name %>！</p>
+              <% end %>
+            </div>
             <button class="navbar-toggler" type="button"
               data-toggle="collapse"
               data-target="#navbarNavDropdown"
@@ -52,7 +58,7 @@
                   <%= link_to"ジャンル一覧",admin_genres_path,class: 'nav-link' %>
                 </li>
                  <li>
-                  <%= link_to"ログアウト",destroy_admin_session_path, method: :delete,class: 'nav-link' %>
+                  <%= link_to"ログアウト",destroy_admin_session_path,class: 'nav-link' %>
                 </li>
               <% else %>
                 <li>
@@ -70,12 +76,14 @@
               <% end %>
               </ul>
             </div>
+          </div>
         </div>
       </nav>
     </header>
     <main>
+      <p id="notice"><%= notice %></p>
+      <%= yield %>
     </main>
-    <%= yield %>
     <footer>
       <div class="bg-dark fixed-bottom  ">
         <p class="text-light">nagano_cake</p>
