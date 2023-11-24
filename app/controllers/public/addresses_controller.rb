@@ -1,5 +1,5 @@
 class Public::AddressesController < ApplicationController
-  before_action :authenticate_customer,{only: [:index, :create, :edit, :update, :destroy]}
+  before_action :authenticate_customer!,{only: [:index, :create, :edit, :update, :destroy]}
   def index
     @address = Address.new
     @addresses = Address.all
