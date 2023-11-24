@@ -11,7 +11,6 @@ Rails.application.routes.draw do
  get 'home/about'=>'public/homes#about'
 
 
-
  scope module: :public do
   resources :items, only:[:index, :show]
   resource :customer, only: [:show, :update]do
