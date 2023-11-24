@@ -74,14 +74,20 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+
     @order = Order.find(params[:id])
     @order_details = OrderDetail.where(order_id: @order.id)
+    @total_item_amount = @order_details.sum { |order_detail| order_detail.add_sub_total }
   end
 
   private
 
   def order_params
     params.require(:order).permit(:customer_id, :postage, :payment_method, :payment_total, :order_status, :name, :postal_code, :address)
+  end
+
+  def order_detail_params
+    params.require(:order_detail).permit(:order_id, :item_id, :amount, :production_status, :value)
   end
 
 end
