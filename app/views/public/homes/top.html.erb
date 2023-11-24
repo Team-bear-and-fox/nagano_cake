@@ -6,6 +6,13 @@
             <p>会員でない方も商品の閲覧はできますが、</p>
             <p>購入には会員登録が必要になります。</p>
             <h1>新着商品</h1>
+            <% @items.each do |item| %>
+              <%= link_to item_path(item.id) do %>
+                <%= image_tag item.get_image, :size =>'100x100' %>
+                <p><%= item.name %></p>
+                <p>￥<%= item.add_tax_value.to_s(:delimited) %>円</p>  
+              <% end %>
+            <% end %>
             <%=link_to"全ての商品を見る>",items_path  %>
         </div>
     </div>
