@@ -81,11 +81,10 @@
       </nav>
     </header>
     <main>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <p id="notice"><%= notice %></p>
+      <%= yield %>
     </main>
-    <%= yield %>
-    <footer >
+    <footer>
       <div class="bg-dark fixed-bottom  ">
         <p class="text-light">nagano_cake</p>
       </div>
