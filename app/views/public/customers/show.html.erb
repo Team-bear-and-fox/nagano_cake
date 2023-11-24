@@ -1,32 +1,53 @@
-<h3>マイページ</h3>
+<div class="container">
+  <div class="row my-3">
+    <h3>マイページ</h3>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <b>登録情報</b> <%= link_to "編集する", information_edit_customer_path, class: "btn btn-success mb-1" %>
+      <table class="table table-bordered custom-table">
+        <thead class="thead-light">
+          <tr>
+          <th>氏名</th>
+          <td><%= @customer.last_name %><%= @customer.first_name %></td>
+        </tr>
+        <tr>
+          <th>カナ</th>
+          <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
+        </tr>
+        <tr>
+          <th>郵便番号</th>
+          <td><%= @customer.postal_code %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td><%= @customer.phone_number %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @customer.email %></td>
+        </tr>
+        </thead>
+        
+      </table>
+      
+      <b>配送先</b> <%= link_to "一覧を見る", addresses_path, class: "btn btn-primary ml-4 mb-1" %></br>
+      <b>注文履歴</b> <%= link_to "一覧を見る", orders_path, class: "btn btn-primary ml-2" %>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+</div>
 
-<b>登録情報</b> <%= link_to "編集する", information_edit_customer_path, class: "btn btn-success" %>
-<table class="table">
-  <tr>
-    <th>氏名</th>
-    <td><%= @customer.last_name %><%= @customer.first_name %></td>
-  </tr>
-  <tr>
-    <th>カナ</th>
-    <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
-  </tr>
-  <tr>
-    <th>郵便番号</th>
-    <td><%= @customer.postal_code %></td>
-  </tr>
-  <tr>
-    <th>住所</th>
-    <td><%= @customer.address %></td>
-  </tr>
-  <tr>
-    <th>電話番号</th>
-    <td><%= @customer.phone_number %></td>
-  </tr>
-  <tr>
-    <th>メールアドレス</th>
-    <td><%= @customer.email %></td>
-  </tr>
-</table>
-
-<b>配送先</b> <%= link_to "一覧を見る", addresses_path, class: "btn btn-primary" %>
-<b>注文履歴</b> <%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %>
+<style>
+  .custom-table {
+    line-height: 1;
+    border: 2px solid #dee2e6; 
+  }
+</style>
