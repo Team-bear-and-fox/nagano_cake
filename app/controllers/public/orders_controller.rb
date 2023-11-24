@@ -11,7 +11,6 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-    # session[:order_info] = order_params
     @order = Order.new(order_params)
     @customer = current_customer
     @cart_items = @customer.cart_items
