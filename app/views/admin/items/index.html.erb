@@ -1,7 +1,7 @@
 <h1>商品一覧</h1>
 <%= link_to "新規登録", new_admin_item_path %>
 <table>
-  <tbody>
+  <thead>
     <tr>
       <th>商品ID</th>
       <th>商品名</th>
@@ -9,7 +9,9 @@
       <th>ジャンル</th>
       <th>ステータス</th>
     </tr>
-    <% @items.each do |item| %>
+  </thead>
+  <% @items.each do |item| %>
+  <tbody>
     <tr>
       <td><span><%= item.id %></span></td>
       <td>
@@ -24,7 +26,7 @@
         <%= "販売停止中" if item.is_on_sale == false %>
       </td>
     </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 <%= paginate @items %>

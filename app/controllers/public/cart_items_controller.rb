@@ -24,7 +24,15 @@ class Public::CartItemsController < ApplicationController
       @item = Item.find(cart_item_params[:item_id])
       redirect_to item_path(@item.id)
     end
+
+    if @cart_item.save
+      flash[:notice] = "カートに商品が追加されました。"
+      redirect_to cart_items_path
+    else
+      render :index
+    end
   end
+  
   def update
     @cart_item = CartItem.find(params[:id])
     if @cart_item.update(cart_item_params)
@@ -36,12 +44,12 @@ class Public::CartItemsController < ApplicationController
   def destroy
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
-    redirect_to cart_items_path
+      redirect_to cart_items_path
   end
   def destroy_all
     @cart_items = current_customer.cart_items
     @cart_items.destroy_all
-    redirect_to cart_items_path
+    redirect_to cart_items_path,notice: "カートに商品がありません。"
   end
   private
 
