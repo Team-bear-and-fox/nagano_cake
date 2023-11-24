@@ -1,4 +1,5 @@
 class Public::OrdersController < ApplicationController
+before_action :authenticate_customer,{only: [:new, :confirm, :create, :complete, :index, :show]}
 
   def new
     @order = Order.new
@@ -85,9 +86,5 @@ class Public::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:customer_id, :postage, :payment_method, :payment_total, :order_status, :name, :postal_code, :address)
   end
-
-  def order_detail_params
-    params.require(:order_detail).permit(:order_id, :item_id, :amount, :production_status, :value)
-  end
-
 end
+
