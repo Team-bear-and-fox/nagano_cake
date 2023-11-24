@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     <div class="col">
       <h1>会員一覧</h1>
       <table class="table">
-        <thead>
+        <thead class="table-active">
           <tr>
           <th>会員ID</th>
           <th>氏名</th>
@@ -21,6 +21,7 @@
               <% end %>
             </td>
             <td><%= customer.email %></td>
+            <td><%= I18n.t("enums.customer.is_active") %></td>
             <td><%= customer.is_active %></td>
           </tr>
           <% end %>

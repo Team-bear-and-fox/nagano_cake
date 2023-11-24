@@ -4,105 +4,85 @@
       <h2>新規会員登録</h2>
       <%= form_with model: @customer, url:customer_registration_path, method: :post, class: 'new_customer' do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
-        <table class="table　borderless mt-5">
+        <table class="table　borderless mt-5" style="display:inline-block;">
           <thead>
           </thead>
-          <tbody>
+          <tbody style="height:400px;">
             <tr>
-              <td>名前</td>
-              <td>（姓）</td>
+              <th>名前</th>
+              <th>（姓）</th>
               <td>
-                <div class="field">
                   <%= f.text_field :last_name, autofocus: true, placeholder:"令和" , autocomplete: "last_name" %>
-                </div>
               </td>
-              <td>（名）</td>
+              <th>（名）</th>
               <td>
-                <div class="field">
                   <%= f.text_field :first_name,  autofocus: true, placeholder:"道子", autocomplete: "first_name" %>
-                </div>
               </td>
             </tr>
             <tr>
-              <td>フリガナ</td>
-              <td>（セイ）</td>
+              <th>フリガナ</th>
+              <th>（セイ）</th>
               <td>
-                <div class="field">
                   <%= f.text_field :last_name_kana, autofocus: true, placeholder:"レイワ",autocomplete: "last_name_kana" %>
-                </div>
               </td>
-              <td>（メイ）</td>
+              <th>（メイ）</th>
               <td>
-                <div class="field">
                   <%= f.text_field :first_name_kana, autofocus: true, placeholder:"ミチコ",autocomplete: "first_name_kana" %>
-                </div>
               </td>
             <tr>
-              <td>メールアドレス</td>
+              <th>メールアドレス</th>
               <td></td>
               <td>
-                <div class="field">
                   <%= f.email_field :email, autofocus: true, placeholder:"sample@example.com",autocomplete: "email" %>
-                </div>
               </td>
               <td></td>
               <td></td>
             </tr>
             <tr>
-              <td>郵便番号(ハイフンなし)</td>
+              <th>郵便番号(ハイフンなし)</th>
               <td></td>
               <td>
-                <div class="field">
                   <%= f.text_field :postal_code, autofocus: true, placeholder:"0000000",autocomplete: "postal_code" %>
-                </div>
               </td>
               <td></td>
               <td></td>
             </tr>
             <tr>
-              <td>住所</td>
+              <th>住所</th>
               <td></td>
               <td colspan="3">
-                <div class="field">
                   <%= f.text_field :address, size:"80*20", autofocus: true, placeholder:"東京都渋谷区代々木神園町0-0",autocomplete: "address" %>
-                </div>
               </td>
             </tr>
             <tr>
-              <td>電話番号（ハイフンなし）</td>
+              <th>電話番号（ハイフンなし）</th>
               <td></td>
               <td>
-                <div class="field">
                   <%= f.text_field :phone_number, autofocus: true, placeholder:"0000000000",autocomplete: "phone_number" %>
-                </div>
               </td>
               <td></td>
               <td></td>
             </tr>
             <tr>
-              <td>
+              <th>
                 パスワード
                 <% if @minimum_password_length %><em>(<%= @minimum_password_length %> 文字以上)</em>
                 <% end %>
-              </td>
+              </th>
               <td></td>
               <td>
-                <div class="field">
                   <%= f.password_field :password,autocomplete: "new-password" %>
-                </div>
               </td>
               <td></td>
               <td></td>
             </tr>
             <tr>
-              <td>
+              <th>
                 パスワード（確認用）
-              </td>
+              </th>
               <td></td>
               <td>
-                <div class="field">
                   <%= f.password_field :password_confirmation,autocomplete: "new-password" %>
-                </div>
               </td>
               <td></td>
               <td></td>
