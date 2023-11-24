@@ -23,6 +23,12 @@ ja:
       genre:
         name: ジャンル名
   enums:
+    order_detail:
+      production_status:
+        production_unable: "着手不可"
+        production_pending: "製作待ち"
+        in_production: "製作中"
+        production_complete: "製作完了"
     order:
       payment_method:
         credit_card: "クレジットカード"
