@@ -11,7 +11,6 @@ Rails.application.routes.draw do
  get 'home/about'=>'public/homes#about'
 
 
-
  scope module: :public do
   resources :items, only:[:index, :show]
   resource :customer, only: [:show, :update]do
@@ -29,6 +28,9 @@ Rails.application.routes.draw do
   resources :orders, only: [:new, :create, :index, :show]do
    collection do
     post 'confirm'
+    get 'confirm' => redirect('orders/new')
+    # 注文情報入力画面でリロードされた場合GETメソッドが走るため、GETメソッドでURLが同じルーティングを作成。
+    # このルーティングを通る場合は直接'orders/new'へリダイレクトされる。
     get 'complete'
    end
 

@@ -1,40 +1,60 @@
-<h1>商品編集</h1>
-<%= render 'error_messages', item: @item %>
-<%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
-  <table>
-    <tbody>
-      
-      <tr>
-        <th><p>商品画像</p></th>
-        <td><%= f.file_field :image, accept: "image/*" %></td>
-      </tr>
-      <tr>
-        <th><p>商品名</p></th>
-        <td><%= f.text_field :name, placeholder:"商品名" %></td>
-      </tr>
-      <tr>
-        <th><p>商品説明</p></th>
-        <td><%= f.text_area :explanation, placeholder:"ここに説明文を記述します" %></td>
-      </tr>
-      <tr>
-        <th><p>ジャンル</p></th>
-        <td><%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択してください" %></td>
-      </tr>
-      <tr>
-        <th><p>税抜価格</p></th>
-        <td><%= f.text_field :value, placeholder:"1000" %>円</td>
-      </tr>
-      <tr>
-        <th><p>販売ステータス</p></th>
-        <td>
-          <%= f.radio_button :is_on_sale, true %>
-          <%= f.label :"販売中" %>
-          
-          <%= f.radio_button :is_on_sale, false %>
-          <%= f.label :"販売停止中" %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <%= f.submit '変更を保存'%>
-<% end %>
+<div class="container">
+  <div class="row my-3">
+    <h4>商品編集</h4>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-5">
+      <%= render 'error_messages', item: @item %>
+      <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
+        <table>
+          <tbody>
+            <tr>
+              <th><p>商品画像</p></th>
+              <td><%= f.file_field :image, accept: "image/*" %></td>
+            </tr>
+            <tr>
+              <th><p>商品名</p></th>
+              <td><%= f.text_field :name, placeholder:"商品名", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <th><p>商品説明</p></th>
+              <td><%= f.text_area :explanation, placeholder:"ここに説明文を記述します", rows: 5, class: "form-control" %></td>
+            </tr>
+            <tr>
+              <th><p>ジャンル</p></th>
+              <td><%= f.collection_select :genre_id, Genre.all, :id, :name, { include_blank: "--選択してください--" }, { class: "form-control" } %></td>
+            </tr>
+            <tr>
+              <th><p>税抜価格</p></th>
+              <td class="form-group">
+                <div class="input-group">
+                  <%= f.text_field :value, placeholder:"1000", class: "form-control" %>
+                  <div class="input-group-append">
+                    <p> 円</p>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th><p>販売ステータス</p></th>
+              <td class="form-check">
+                <%= f.radio_button :is_on_sale, true %>
+                <%= f.label :"販売中" %>
+                <%= f.radio_button :is_on_sale, false %>
+                <%= f.label :"販売停止中" %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-center">
+          <%= f.submit '変更を保存', class: 'btn btn-success'%>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+</div>
+

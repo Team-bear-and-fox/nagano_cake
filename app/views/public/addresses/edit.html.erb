@@ -1,4 +1,3 @@
-<h1>配送先編集</h1>
 <% if @address.errors.any? %>
  <%= @address.errors.count %>県のエラーが発生しました
  <ul>
@@ -8,22 +7,29 @@
  </ul>
 <% end %>
 
-<%= form_with model: @address do |f| %>
-  <table>
-    <tbody>
-      <tr>
-        <td>郵便番号(ハイフンなし)</td>
-        <td><%= f.text_field :postal_code, placeholder: "0000000" %></td>
-      </tr>
-      <tr>
-        <td>住所</td>
-        <td><%= f.text_field :address, placeholder: "東京都新宿区新宿〇丁目〇−〇〇 成信ビル 〇階" %></td>
-      </tr>
-      <tr>
-        <td>宛名</td>
-        <td><%= f.text_field :name, placeholder: "へのへのもへじ" %></td>
-        <td><%= f.submit '変更内容を保存' %></td>
-      </tr>
-    </tbody>
-  </table>
- <% end %>
+<div class="container mt-5">
+<h5 class="font-weight-bold bg-light w-25 text-center mb-5">配送先編集</h5>
+ <div class="row">
+  <div class="col">
+    <%= form_with model: @address do |f| %>
+      <table>
+        <tbody>
+          <tr>
+            <td class="p-1">郵便番号(ハイフンなし)</td>
+            <td class="p-1"><%= f.text_field :postal_code, placeholder: "0000000" %></td>
+          </tr>
+          <tr>
+            <td class="p-1">住所</td>
+            <td class="p-1"><%= f.text_field :address, placeholder: "東京都新宿区新宿〇丁目〇−〇〇 成信ビル 〇階" %></td>
+          </tr>
+          <tr>
+            <td class="p-1">宛名</td>
+            <td class="p-1"><%= f.text_field :name, placeholder: "へのへのもへじ" %></td>
+            <td class="pl-5"><%= f.submit '変更内容を保存',class: "btn btn-success" %></td>
+          </tr>
+        </tbody>
+      </table>
+     <% end %>
+  </div>
+ </div>
+</div>
