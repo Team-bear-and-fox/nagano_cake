@@ -13,6 +13,5 @@ class Customer < ApplicationRecord
   validates :phone_number, presence: true, uniqueness: true, numericality: {only_integer: true}, length: { in: 10..11 }
   validates :postal_code, presence: true, numericality: {only_integer: true}, length: { is: 7 }
   validates :address, presence: true, uniqueness: true
-  
 
 end
