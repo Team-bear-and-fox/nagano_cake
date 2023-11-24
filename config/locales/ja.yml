@@ -1,5 +1,34 @@
 ja:
+  activerecord:
+    attributes:
+      customer:
+        email: メールアドレス
+        password: パスワード
+        last_name: 姓
+        first_name: 名
+        last_name_kana: セイ
+        first_name_kana: メイ
+        phone_number: 電話番号
+        postal_code: 郵便番号
+        address: 住所
+      address:
+        postal_code: 郵便番号
+        address: 住所
+        name: 宛名
+      item:
+        genre_id: ジャンル
+        name: 商品名
+        explanation: 商品説明
+        value: 価格
+      genre:
+        name: ジャンル名
   enums:
+    order_detail:
+      production_status:
+        production_unable: "着手不可"
+        production_pending: "製作待ち"
+        in_production: "製作中"
+        production_complete: "製作完了"
     order:
       payment_method:
         credit_card: "クレジットカード"
@@ -10,7 +39,6 @@ ja:
         now_making: "製作中"
         preparing_for_shipment: "発送準備中"
         shipped: "発送済"
-  activerecord:
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
