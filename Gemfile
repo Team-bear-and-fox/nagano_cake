@@ -60,4 +60,4 @@ gem 'enum_help'
 
 gem 'pry-byebug', group: :development
 gem 'pry-rails'
-
+gem 'rails-i18n'
