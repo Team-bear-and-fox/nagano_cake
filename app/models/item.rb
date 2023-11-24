@@ -3,15 +3,19 @@ class Item < ApplicationRecord
   has_many :order_details, dependent: :destroy
   belongs_to :genre
   has_one_attached :image
-  
+
   validates :name, presence: true
   validates :explanation, presence: true
   validates :genre_id, presence: true
   validates :value, presence: true
-  validates :is_on_sale, presence: true
+  validates :is_on_sale, inclusion: { in: [true, false] }
 
   def add_tax_value
     (self.value * 1.10).round
+  end
+
+  def add_sub_total(amount, order_detail)
+    (self.value * 1.10).floor * amount
   end
 
   def get_image

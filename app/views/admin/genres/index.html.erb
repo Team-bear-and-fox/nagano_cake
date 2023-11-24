@@ -1,5 +1,6 @@
 <div class="container mt-3">
   <h5 class="font-weight-bold bg-light w-auto">ジャンル一覧・追加</h5>
+  <%= render 'error_messages', genre: @genre %>
   <div class="row">
    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
       <%= form_with model: @genre, url: admin_genres_path do |f| %><!--変更の可能性あり-->
@@ -13,7 +14,6 @@
          </tbody>
        </table>
       <% end %>
-
       <table class="table">
         <thead>
           <tr>

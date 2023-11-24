@@ -16,7 +16,12 @@
       <td>〒<%= order.postal_code %><br>
       <%= order.address %><br>
       <%= order.name %>様</td>
-      <td>買ったものを表示したい。多くてもずらっと出す？</td>
+      <td>
+        <% order.order_details.first(3).each do |order_detail| %>
+          <%= order_detail.item.name %></br>
+        <% end %>
+        <!--余裕があったら4点以上の時に3点目のあと"他"ってつけたい-->
+      </td>
       <td><%= order.payment_total %></td>
       <td><%= order.order_status_i18n %></td>
       <td><%= link_to "表示する", order_path(order), class: "btn btn-primary" %></td>
