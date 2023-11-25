@@ -19,10 +19,10 @@ class Public::SessionsController < Devise::SessionsController
     customer = Customer.find_by(email: params[:customer][:email])
     # もしcustomerの中にemailが一致するデータが無ければこの処理を終了する
     return if customer.nil?
-    flash[:error] = "退会済みです。再度ご登録をしてご利用ください"
     # emailの一致するcustomerに対してパスワードが一致しない場合この処理を終了する
     return unless customer.valid_password?(params[:customer][:password])
     return if customer.is_active
+    flash[:error] = "退会済みです。再度ご登録をしてご利用ください"
     redirect_to new_customer_session_path
   end
 
