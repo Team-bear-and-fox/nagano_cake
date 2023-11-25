@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1>商品一覧(全<%= @items.count %>件)</h1>
+      <h3 class="font-weight-bold">商品一覧(全<%= @items.count %>件)</h3>
       <table class="table table-borderless">
         <thead>
           <tr>
@@ -23,7 +23,9 @@
           <% end %>
         </tbody>
       </table>
-      <%= paginate @item %><!--変わるかも-->
+      <div class="pagination justify-content-center">
+         <%= paginate @item %><!--変わるかも-->
+      </div>
     </div>
   </div>
 </div>

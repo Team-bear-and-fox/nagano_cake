@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row my-3">
-    <h3>マイページ</h3>
+    <h5 class="font-weight-bold bg-light w-25 text-center">マイページ</h5>
   </div>
 </div>
 <div class="container">
@@ -35,6 +35,7 @@
         </tr>
         </table>
       
+
       <b>配送先</b> <%= link_to "一覧を見る", addresses_path, class: "btn btn-primary ml-4 mb-1" %></br>
       <b>注文履歴</b> <%= link_to "一覧を見る", orders_path, class: "btn btn-primary ml-2" %>
     </div>
@@ -45,6 +46,6 @@
 <style>
   .custom-table {
     line-height: 1;
-    border: 2px solid #dee2e6; 
+    border: 2px solid #dee2e6;
   }
 </style>

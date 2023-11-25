@@ -1,19 +1,32 @@
 <div class="container">
-  <div class="row">
-    <div class="col-3"></div>
-      <div class="col-9">
-        <p>ようこそ、ながのCAKEへ！</p>
-        <p>このサイトは、ケーキ販売のECサイトになります。</p>
-        <p>会員でない方も商品の閲覧はできますが、</p>
-        <p>購入には会員登録が必要になります。</p>
-        <h1>新着商品</h1>
-            <% @items.each do |item| %>
-              <%= link_to item_path(item.id) do %>
-                <%= image_tag item.get_image, :size =>'100x100' %>
-                <p><%= item.name %></p>
-                <p>￥<%= item.add_tax_value.to_s(:delimited) %></p>  
-              <% end %>
-            <% end %>
+    <div class="row">
+        <div class="col">
+            <div class="text-center" style=" font-size:30px; background-image: url('<%= asset_path('top_cake.jpg') %>'); background-size: cover; height: 450px;">
+              <p>ようこそ、ながのCAKEへ！</p>
+              <p>このサイトは、ケーキ販売のECサイトになります。</p>
+              <p>会員でない方も商品の閲覧はできますが、</p>
+              <p>購入には会員登録が必要になります。</p>
+            </div>
+            <h1>新着商品</h1>
+            <table class="table table-borderless">
+                <thead>
+                  <tr>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <% @items.each do |item| %>
+                        <td>
+                        <%= link_to item_path(item.id) do %>
+                           <%= image_tag item.get_image, :size =>'100x100' %>
+                           <p><%= item.name %></p>
+                           <p>￥<%= item.add_tax_value.to_s(:delimited) %></p>
+                        <% end %>
+                        </td>
+                    <% end %>
+                    </tr>
+                </tbody>
+            </table>
             <%=link_to"全ての商品を見る>",items_path  %>
       </div>
   </div>

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h2><%= @customer.last_name %><%=@customer.first_name %>さんの会員編集</h2>
+      <h5 class="font-weight-bold bg-light w-25 text-center"><%= @customer.last_name %><%=@customer.first_name %>さんの会員編集</h5>
       <%= form_with model: @customer, url: admin_customer_path, local: true do |f| %>
         <table class="table-borderless">
           <thead>
