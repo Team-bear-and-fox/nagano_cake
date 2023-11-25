@@ -1,6 +1,7 @@
 class Public::CartItemsController < ApplicationController
   before_action :authenticate_customer!
   def index
+    @cart_items = current_customer.id
     @cart_items = current_customer.cart_items.all
     @total = @cart_items.inject(0) { |sum, item| sum + item.add_sub_total}
   end
@@ -53,6 +54,7 @@ class Public::CartItemsController < ApplicationController
   def cart_item_params
       params.require(:cart_item).permit(:item_id, :amount)
   end
+
   def redirect_based_on_save_status(save_successful)
     if save_successful
       redirect_to cart_items_path
