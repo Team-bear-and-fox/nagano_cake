@@ -1,5 +1,5 @@
 class Public::CustomersController < ApplicationController
-  before_action :authenticate_customer,{only: [:show, :edit, :update, :confirm, :withdraw]}
+  before_action :authenticate_customer!,{only: [:show, :edit, :update, :confirm, :withdraw]}
 
   def show
     @customer = current_customer
@@ -13,7 +13,7 @@ class Public::CustomersController < ApplicationController
     customer = current_customer
     if customer.update(customer_params)
       flash[:notice] = "変更が完了しました。"
-      redirect_to mypage_customer_path(customer)
+      redirect_to mypage_customer_path
     else
       render :edit
     end
