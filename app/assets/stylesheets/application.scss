@@ -15,3 +15,14 @@
  *= require_tree .
  *= require_self
  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans JP', 'M PLUS 1p', sans-serif;
+  background-color: #f5f5dc;
+  
+}

@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h1>会員一覧</h1>
+      <h5 class="font-weight-bold bg-light w-25 text-center">会員一覧</h5>
       <table class="table">
         <thead class="table-active">
           <tr>
@@ -21,9 +21,12 @@
               <% end %>
             </td>
             <td><%= customer.email %></td>
-            <td><%=  %>
-              <%= "有効" if customer.is_active == true %>
-              <%= "退会" if customer.is_active == false %>
+            <td>
+              <% if customer.is_active == true %>
+                <span class="text-success font-weight-bold">有効</span>
+              <% else %>
+                <span class="text-danger font-weight-bold">退会</span>
+              <% end %>
             </td>
           </tr>
           <% end %>

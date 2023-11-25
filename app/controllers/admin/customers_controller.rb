@@ -3,7 +3,7 @@ class Admin::CustomersController < ApplicationController
     @customer=Customer.find(params[:id])
   end
   def index
-    @customers = Customer.page(params[:page]).per(2)
+    @customers = Customer.page(params[:page]).per(10)
   end
   def edit
     @customer=Customer.find(params[:id])

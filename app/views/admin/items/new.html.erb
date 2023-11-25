@@ -1,8 +1,8 @@
-<h4>商品新規登録</h4>
 <div class="container">
   <div class="row">
     <div class="col-lg-3"></div>
     <div class="col-lg-5">
+      <h5 class="font-weight-bold bg-light w-50 text-center ml-5">商品新規登録</h5>
       <%= render 'error_messages', item: @item %>
       <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
         <table>
@@ -60,4 +60,4 @@
   </div>
 </div>
 
-  
+
