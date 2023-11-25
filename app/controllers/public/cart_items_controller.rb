@@ -2,7 +2,6 @@ class Public::CartItemsController < ApplicationController
   before_action :authenticate_customer!,{only: [:destroy, :destroy_all, :create, :index, :update]}
   def index
     @cart_items = current_customer.cart_items.all
-    byebug
     @total = @cart_items.inject(0) { |sum, item| sum + item.add_sub_total}
   end
 

@@ -68,7 +68,6 @@
                 <td><%= order_detail.amount %></td>
                 <td><%= order_detail.item.add_sub_total(order_detail.amount,order_detail).to_s(:delimited) %></td>
                 <td><%= f.select :production_status, OrderDetail.production_statuses.keys.map { |k| [I18n.t("enums.order_detail.production_status.#{k}"), k] },class: "form-select form-select-lg " %>
-
                     <%= f.submit "更新", class:"btn btn-success ml-4" %>
                 </td>
               </tr>
