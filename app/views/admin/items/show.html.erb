@@ -5,32 +5,32 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-lg-4 text-center">
+    <div class="col-lg-4 text-center mt-3">
       <%= image_tag @item.get_image, :size =>'200x200' %>
     </div>
     <div class="col-lg-5">
-      <table class="mx-auto">
+      <table class="table lg ml-5 table-borderless">
         <tbody>
           <tr>
-            <th><p>商品名</p></th>
+            <th>商品名</th>
             <td><%= @item.name %></td>
           </tr>
            <tr>
-            <th><p>商品説明</p></th>
+            <th>商品説明</th>
             <td><%= @item.explanation %></td>
           </tr>
            <tr>
-            <th><p>ジャンル</p></th>
+            <th>ジャンル</th>
             <td><%= @item.genre.name %></td>
           </tr>
            <tr>
-            <th><p>税込価格（税抜価格）</p></th>
+            <th>税込価格（税抜価格）</th>
             <td>
               <%= @item.add_tax_value %>円 （<%= @item.value %>円）
             </td>
           </tr>
            <tr>
-            <th><p>販売ステータス</p></th>
+            <th>販売ステータス</th>
            <td>
               <% if @item.is_on_sale == true %>
                 <span class="text-success font-weight-bold">販売中</span>
