@@ -1,5 +1,5 @@
 class Public::CartItemsController < ApplicationController
-  before_action :authenticate_customer!
+  before_action :authenticate_customer!,{only: [:destroy, :destroy_all, :create, :index, :update]}
   def index
     @cart_items = current_customer.id
     @cart_items = current_customer.cart_items.all
@@ -29,6 +29,7 @@ class Public::CartItemsController < ApplicationController
     end
     redirect_based_on_save_status(save_successful)
   end
+
   def update
     @cart_item = CartItem.find(params[:id])
     if @cart_item.update(cart_item_params)
