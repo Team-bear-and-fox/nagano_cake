@@ -6,24 +6,23 @@
       <%= form_with model: @cart_items, url: cart_items_path , method: :post do |f| %>
      <div class="row ml-5">
       <div class="col-5">
-       <%= image_tag @item.get_image, :size =>'100x100' %>
+        <%= image_tag @item.get_image, :size =>'100x100' %>
       </div>
-       <div class="col-6">
+      <div class="col-6">
         <h4 class="font-weight-bold"><%= @item.name %></h4>
         <p><%= @item.explanation %></p><br>
         <p><h4 class="font-weight-bold">￥<%= @item.add_tax_value.to_s(:delimited) %></h4>(税込)</p>
         <table>
-         <tbody>
-           <tr>
-                 <%= f.hidden_field :'cart_item[item_id]', :value => @item.id %>
-             <td class="dropdown"><%= f.select :'cart_item[amount]', *[1..10],include_blank: "個数選択" %></td>
-             <td class="p-2"><%= f.submit "カートに入れる" , class:"btn btn-success" %></td>
-           </tr>
-         </tbody>
+          <tbody>
+            <tr>
+              <%= f.hidden_field :'cart_item[item_id]', :value => @item.id %>
+              <td class="dropdown"><%= f.select :'cart_item[amount]', *[1..10],include_blank: "個数選択" %></td>
+              <td class="p-2"><%= f.submit "カートに入れる" , class:"btn btn-success" %></td>
+            </tr>
+          </tbody>
         </table>
       </div>
-     </div>
-     <% end %>
     </div>
+    <% end %>
   </div>
 </div>

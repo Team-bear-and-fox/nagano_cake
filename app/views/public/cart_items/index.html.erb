@@ -1,15 +1,15 @@
-<div class="container">
-  <div class="row">
-    <div class="col-9 mt-5">
-      <h5 class="font-weight-bold bg-light w-25 text-center">ショッピングカート</h5>
-    </div>
-    <div class="col-3 mt-5 pt-2 text-center">
-      <%=link_to "カートを空にする",destroy_all_cart_items_path, method: :delete, class:"btn btn-danger" %>
-    </div>
-    <div class="col-12">
-      <table class="table table-bordered mt-3 mb-5" style="border-width:3px; border-color:black;">
+<div class="container-fuluid mt-2">
+  <h5 class="font-weight-bold w-25 text-center ml-5">ショッピングカート</h5>
+  <div class="row mt-3 mx-auto" >
+    <div class="col-9 mx-auto">
+      <div class="row">
+        <div class="col-2 ml-auto">
+          <%=link_to "カートを空にする",destroy_all_cart_items_path, method: :delete, class:"btn btn-danger" %>
+        </div>
+      </div>
+      <table class="table table-bordered mt-3 mb-5">
         <thead>
-          <tr class="table-active" >
+          <tr>
             <th>商品名</th>
             <th>単価(税込)</th>
             <th>数量</th>
@@ -33,16 +33,14 @@
         <% end %>
       </table>
     </div>
-    <div class="col-3">
+    <div class="col-5 text-center">
       <%=link_to "買い物を続ける", root_path, class:"btn btn-primary p-2" %>
     </div>
-    <div class="col-5 ml-auto ">
-      <table class="table table-bordered " style="border-width:3px; border-color:black;">
-        <thead>
-        </thead>
+    <div class="col-5">
+      <table class="table table-bordered">
         <tbody>
           <tr>
-            <td class="table-active"><%="合計金額"%></td>
+            <th><%="合計金額"%></th>
             <td>¥<%= @total.round.to_s(:delimited)%></td>
           </tr>
         </tbody>

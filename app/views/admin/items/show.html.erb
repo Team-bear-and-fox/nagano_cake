@@ -1,43 +1,43 @@
 <div class="container">
   <div class="row my-5">
-     <h5 class="font-weight-bold bg-light w-25 text-center">商品詳細</h5>
+     <h5 class="font-weight-bold w-25 text-center ml-5">商品詳細</h5>
   </div>
 </div>
 <div class="container">
   <div class="row">
     <div class="col-lg-4 text-center mt-3">
-      <%= image_tag @item.get_image, :size =>'200x200' %>
+      <%= image_tag @item.get_image, :size =>'250x250' %>
     </div>
     <div class="col-lg-5">
       <table class="table lg ml-5 table-borderless">
         <tbody>
           <tr>
-            <th>商品名</th>
+            <td><b>商品名</b></td>
             <td><%= @item.name %></td>
           </tr>
            <tr>
-            <th>商品説明</th>
+            <td><b>商品説明</b></td>
             <td><%= @item.explanation %></td>
           </tr>
            <tr>
-            <th>ジャンル</th>
+            <td><b>ジャンル</b></td>
             <td><%= @item.genre.name %></td>
           </tr>
            <tr>
-            <th>税込価格（税抜価格）</th>
+            <td><b>税込価格（税抜価格）</b></td>
             <td>
-              <%= @item.add_tax_value %>円 （<%= @item.value %>円）
+              <%= @item.add_tax_value.to_s(:delimited) %> （<%= @item.value.to_s(:delimited) %>円）
             </td>
           </tr>
            <tr>
-            <th>販売ステータス</th>
-           <td>
-              <% if @item.is_on_sale == true %>
-                <span class="text-success font-weight-bold">販売中</span>
-              <% else %>
-                <span class="text-danger font-weight-bold">販売停止中</span>
-              <% end %>
-            </td>
+            <td><b>販売ステータス</b></td>
+             <td>
+                <% if @item.is_on_sale == true %>
+                  <span class="text-success font-weight-bold">販売中</span>
+                <% else %>
+                  <span class="text-danger font-weight-bold">販売停止中</span>
+                <% end %>
+              </td>
           </tr>
         </tbody>
       </table>

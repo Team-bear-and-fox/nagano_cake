@@ -22,8 +22,62 @@
 }
 
 body {
-  font-family: 'Noto Sans JP', 'M PLUS 1p', sans-serif;
-  background-color: #f5f5dc;
-  
+  font-family: 'Zen Maru Gothic', sans-serif;
+  background-color: #ffeecc;
+  color: #291b25;
 }
 
+.link {
+  text-decoration: none;
+}
+
+a {
+  color: #291b25;
+}
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid #291b25;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 1px solid #291b25;
+}
+
+th {
+  background-color: #ffdd99;
+}
+
+.genre-th {
+  border-bottom: 1px solid #291b25;
+}
+
+.genre-td {
+  border: none;
+}
+
+h5, .index-line {
+  border-bottom: 8px solid #ffbb33;
+  line-height: 0.6;
+}
+
+.under-line {
+  border-bottom: 8px solid #ffdd99;
+  line-height: 0.6;
+}
+
+.btn-primary{
+  background-color: #66CCFF;
+}
+
+.btn-success{
+  background-color: #6FDE6F;
+}
+
+.btn-danger{
+  background-color: #FF3355;
+}
+
+.btn-outline-dark{
+  background-color: #8f6552
+  }
