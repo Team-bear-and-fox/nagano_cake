@@ -1,6 +1,18 @@
 <div class="container">
     <div class="row">
-        <div class="col">
+      <div class="col-2">
+        <table border="1" style="border-collapse: collapse">
+          <thead>
+            <th class="font-weight-bold text-center pl-4 pr-4">ジャンル検索</th>
+          </thead>
+          <% @genres.each do |genre| %>
+            <tbody>
+              <td class="text-center p-1"><%= genre.name %></td>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+      <div class="col-10">
             <div class="text-center" style=" font-size:30px; background-image: url('<%= asset_path('top_cake.jpg') %>'); background-size: cover; height: 450px;">
               <p>ようこそ、ながのCAKEへ！</p>
               <p>このサイトは、ケーキ販売のECサイトになります。</p>
@@ -32,5 +44,4 @@
   </div>
 </div>
 
-        
-    
+
