@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col mt-5">
+    <div class="col mt-3">
       <h5 class="font-weight-bold bg-light w-25 text-center">新規会員登録</h5>
       <%= form_with model: @customer, url:customer_registration_path, method: :post, class: 'new_customer' do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
@@ -51,7 +51,7 @@
               <th>住所</th>
               <td></td>
               <td colspan="3">
-                  <%= f.text_field :address, size:"80*20", autofocus: true, placeholder:"東京都渋谷区代々木神園町0-0",autocomplete: "address" %>
+                  <%= f.text_field :address, size:"50*20", autofocus: true, placeholder:"東京都渋谷区代々木神園町0-0",autocomplete: "address" %>
               </td>
             </tr>
             <tr>
