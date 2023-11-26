@@ -22,7 +22,34 @@
 }
 
 body {
-  font-family: 'Noto Sans JP', 'M PLUS 1p', sans-serif;
-  background-color: #f5f5dc;
-  
+  font-family: 'Zen Maru Gothic', sans-serif;
+  background-color: #ffeecc;
+  color: #291b25;
 }
+
+.link {
+  text-decoration: none;
+}
+
+a {
+  color: #291b25;
+}
+
+th {
+  background-color: #ffdd99;
+  // border-bottom: 1px solid black;
+}
+
+h5 {
+  border-bottom: 8px solid #ffbb33;
+  line-height: 0.6;
+}
+
+// td {
+//   border: none;
+// }
+
+
+// table {
+// border-collapse: collapse;
+// }
