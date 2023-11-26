@@ -1,19 +1,19 @@
-<div class="container mt-5">
-  <div class="row ">
-    <div class="col ">
-      <%= flash[:error] %>
-      <h5 class="font-weight-bold bg-light w-25 text-center">ログイン</h5>
-      <p class="font-weight-bold bg-light w-25 text-center mt-4">会員の方はこちらからログイン</p>
+<div class="container-fluid mt-5">
+  <%= flash[:error] %>
+  <h5 class="font-weight-bold w-25 text-center ml-5">ログイン</h5>
+  <div class="row mt-3 mx-auto">
+    <div class="col-9 mx-auto">
+      <p class="under-line font-weight-bold w-25 text-center mt-4">会員の方はこちらからログイン</p>
       <%= form_with model: @customer, url: customer_session_path do |f| %>
       <table class="table table-borderless ml-5" style="display:inline-block">
         <thead></thead>
         <tbody>
           <tr>
-            <th><%= f.label :メールアドレス %></th>
+            <td><%= f.label :メールアドレス %></td>
             <td colspan="5"><%= f.email_field :email, size:"60*20", autofocus: true, placeholder:"sample@example.com", autocomplete: "email" %></td>
           </tr>
           <tr>
-            <th><%= f.label :パスワード %></th>
+            <td><%= f.label :パスワード %></td>
             <td><%= f.password_field :password, size:"60*20", autocomplete: "current-password" %></td>
           </tr>
           <tr>
