@@ -9,11 +9,16 @@ Rails.application.routes.draw do
  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
  root to: 'public/homes#top'
  get 'home/about'=>'public/homes#about'
- get "search" => "searches#search"
+ get '/genre/search' => 'searches#genre_search'
 
 
  scope module: :public do
-  resources :items, only:[:index, :show]
+  resources :items, only:[:index, :show] do
+   collection do
+    get 'genres/:id' => 'items#genre', as: 'genre'
+   end
+  end
+
   resource :customer, only: [:show, :update]do
    get 'information/edit' => 'customers#edit'
    get 'confirm' => 'customers#confirm'

@@ -10,14 +10,6 @@ class Item < ApplicationRecord
   validates :value, presence: true
   validates :is_on_sale, inclusion: { in: [true, false] }
 
-  def self.looks(search, word)
-    if search == "perfect_match"
-      @item = Item.where("item LIKE?", "#{word}")
-    else
-      @item = Item.all
-    end
-  end
-
   def add_tax_value
     (self.value * 1.10).round
   end

@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
   def search
-    @item = Item.looks(params[:search], params[:word])
-    redirect_to items_path
+    @genre_id = params[:genre_id]
+    @items = Item.where(genre_id: @genre_id)
   end
 end
