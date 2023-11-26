@@ -16,9 +16,9 @@
 
   <body style="min-height:100vh ;position: relative;padding-bottom:50px;box-sizing:border-box;">
     <header>
-      <nav class="navbar navbar-expand-lg navbar-li" style="background: #ffce6d; color: #291b25">
-        <div class="container">
-          <a href="/" class="navbar-brand"><%= image_tag('nagano_cake.jpg', size: "200x100") %></a>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background: #ffce6d; color: #291b25">
+        <div class="container-fluid">
+          <a href="/" class="navbar-brand ml-5"><%= image_tag('nagano_cake.jpg', size: "200x100") %></a>
             <div class= "col-4">
               <% if customer_signed_in? %>
                <p class="text-center pt-3 ml-5" style="color: #291b25">

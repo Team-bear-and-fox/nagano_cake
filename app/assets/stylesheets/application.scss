@@ -35,21 +35,35 @@ a {
   color: #291b25;
 }
 
-th {
-  background-color: #ffdd99;
-  // border-bottom: 1px solid black;
+.table-bordered th, .table-bordered td {
+  border: 1px solid #291b25;
 }
 
-h5 {
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 1px solid #291b25;
+}
+
+th {
+  background-color: #ffdd99;
+}
+
+.genre-th {
+  border-bottom: 1px solid #291b25;
+}
+
+.genre-td {
+  border: none;
+}
+
+h5, .index-line {
   border-bottom: 8px solid #ffbb33;
   line-height: 0.6;
 }
 
-// td {
-//   border: none;
-// }
+.under-line {
+  border-bottom: 8px solid #ffdd99;
+  line-height: 0.6;
+}
 
 
-// table {
-// border-collapse: collapse;
-// }

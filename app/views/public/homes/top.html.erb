@@ -1,13 +1,13 @@
 <div class="container">
     <div class="row">
       <div class="col-2">
-        <table border="1" style="border-collapse: collapse">
+        <table>
           <thead>
-            <th class="font-weight-bold text-center pl-4 pr-4">ジャンル検索</th>
+            <th class="genre-th font-weight-bold text-center pl-4 pr-4">ジャンル検索</th>
           </thead>
           <% @genres.each do |genre| %>
             <tbody>
-              <td class="text-center p-1"><%= genre.name %></td>
+              <td class="genre-td text-center p-1"><%= genre.name %></td>
             </tbody>
           <% end %>
         </table>
