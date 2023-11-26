@@ -20,6 +20,8 @@
                     <p>￥<%= item.add_tax_value.to_s(:delimited) %>円</p>
                   </div>
                   <% end %>
+                  <p><%= item.name %></p>
+                  <p>￥<%= item.add_tax_value.to_s(:delimited) %></p>
                 </td>
               <% end %>
             </tr>

@@ -1,6 +1,18 @@
 <div class="container">
     <div class="row">
-        <div class="col">
+      <div class="col-2">
+        <table>
+          <thead>
+            <th class="genre-th font-weight-bold text-center pl-4 pr-4">ジャンル検索</th>
+          </thead>
+          <% @genres.each do |genre| %>
+            <tbody>
+              <td class="genre-td text-center p-1"><%= genre.name %></td>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+      <div class="col-10">
             <div class="text-center" style=" font-size:30px; background-image: url('<%= asset_path('top_cake.jpg') %>'); background-size: cover; height: 450px;">
                 <div class="d-flex align-items-center justify-content-center" style="wifth: 1110px; height: 450px;">
                     <div style="background-color: rgba(255,255,255,.5);">
