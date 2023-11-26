@@ -2,7 +2,7 @@ class Public::AddressesController < ApplicationController
   before_action :authenticate_customer!,{only: [:index, :create, :edit, :update, :destroy]}
   def index
     @address = Address.new
-    @addresses = Address.all
+    @addresses = current_customer.addresses
   end
 
   def create
@@ -37,8 +37,8 @@ class Public::AddressesController < ApplicationController
 
   private
 
-  def address_params
-    params.require(:address).permit(:postal_code, :address, :name)
-  end
+    def address_params
+      params.require(:address).permit(:postal_code, :address, :name)
+    end
 
 end
