@@ -17,11 +17,9 @@
                   <div class="bg-white d-block mr-3 ml-3" >
                     <%= image_tag item.get_image, :size =>'160x160' %>
                     <p><%= item.name %></p>
-                    <p>￥<%= item.add_tax_value.to_s(:delimited) %>円</p>
+                    <p>￥<%= item.add_tax_value.to_s(:delimited) %></p>
                   </div>
                   <% end %>
-                  <p><%= item.name %></p>
-                  <p>￥<%= item.add_tax_value.to_s(:delimited) %></p>
                 </td>
               <% end %>
             </tr>
