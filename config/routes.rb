@@ -9,7 +9,7 @@ Rails.application.routes.draw do
  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
  root to: 'public/homes#top'
  get 'home/about'=>'public/homes#about'
- get '/genre/search' => 'searches#genre_search'
+
 
 
  scope module: :public do
