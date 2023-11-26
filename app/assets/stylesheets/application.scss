@@ -40,12 +40,16 @@ a {
 }
 
 .table thead th {
-    vertical-align: bottom;
-    border-bottom: 1px solid #291b25;
+  vertical-align: bottom;
+  border-bottom: 1px solid #291b25;
 }
 
 th {
   background-color: #ffdd99;
+}
+
+td {
+  border-bottom: 1px solid #291b25;
 }
 
 .genre-th {
