@@ -1,22 +1,22 @@
-<div class="container mt-2">
+<div class="container">
   <div class="row">
     <div class="col-2">
       <%= render 'public/items/genre', genres: @genres %>
     </div>
     <div class="col-10">
-      <h3 class="font-weight-bold">商品一覧(全<%= @items_sale.total_count %>件)</h3>
+      <h3 class="font-weight-bold"><%= @genre_name.name %>一覧(全<%= @items_sale.total_count %>件)</h3>
       <table class="table table-borderless">
         <thead>
           <tr>
           </tr>
         </thead>
         <tbody>
-           <% @items_sale.each_slice(4) do |items| %>
+           <%  @items_sale.each_slice(4) do |items| %>
             <tr>
               <% items.each do |item| %>
                 <td>
                   <%= link_to item_path(item.id) do %>
-                  <div class="bg-white d-block mr-3 ml-3" style="width:160px">
+                  <div class="bg-white d-block mr-3 ml-3" style="width:160px" >
                       <%= image_tag item.get_image, :size =>'160x160' %>
                     <% end %>
                     <p><%= item.name %></p>
@@ -24,14 +24,13 @@
                   </div>
                 </td>
               <% end %>
-            <% end %>
+            </tr>
           <% end %>
         </tbody>
       </table>
-      </div>
-    </div>
-    <div class="pagination justify-content-center">
-      <%= paginate @items_sale %><!--変わるかも-->
+        <div class="pagination justify-content-center">
+           <%= paginate @items_sale %>
+        </div>
     </div>
   </div>
 </div>
