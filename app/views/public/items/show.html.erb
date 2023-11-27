@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-2">
   <div class="row">
    <div class="col-2">
     <%= render 'genre', genres: @genres %>
@@ -12,14 +12,12 @@
         <h4 class="font-weight-bold"><%= @item.name %></h4>
         <p><%= @item.explanation %></p><br>
         <p><h4 class="font-weight-bold">￥<%= @item.add_tax_value.to_s(:delimited) %></h4>(税込)</p>
-        <table>
-          <tbody>
-            <tr>
-              <%= f.hidden_field :'cart_item[item_id]', :value => @item.id %>
-              <td class="dropdown"><%= f.select :'cart_item[amount]', *[1..10],include_blank: "個数選択" %></td>
-              <td class="p-2"><%= f.submit "カートに入れる" , class:"btn btn-success" %></td>
-            </tr>
-          </tbody>
+        <table class="table-borderless">
+          <tr>
+            <%= f.hidden_field :'cart_item[item_id]', :value => @item.id %>
+            <td class="dropdown"><%= f.select :'cart_item[amount]', *[1..10],include_blank: "個数選択" %></td>
+            <td class="p-2"><%= f.submit "カートに入れる" , class:"btn btn-success" %></td>
+          </tr>
         </table>
       </div>
     </div>

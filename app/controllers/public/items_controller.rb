@@ -1,7 +1,6 @@
 class Public::ItemsController < ApplicationController
   def index
-    @items = Item.all
-    @item = Item.page(params[:page]).per(8)
+    @items_sale = Item.where(is_on_sale: true).page(params[:page]).per(8)
     @genres = Genre.all
   end
 

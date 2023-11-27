@@ -1,10 +1,10 @@
-<table border="1" style="border-collapse: collapse">
-  <thead>
+<table class="table-borderless">
+  <tr>
     <th class="font-weight-bold text-center pl-4 pr-4">ジャンル検索</th>
-  </thead>
+  </tr>
   <% genres.each do |genre| %>
-    <tbody>
+    <tr>
       <td class="text-center p-1"><%= genre.name %></td>
-    </tbody>
+    </tr>
   <% end %>
 </table>
