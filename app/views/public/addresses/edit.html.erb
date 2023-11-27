@@ -12,22 +12,20 @@
  <div class="row mx-auto mt-5">
   <div class="col-9 mx-auto">
     <%= form_with model: @address do |f| %>
-      <table>
-        <tbody>
-          <tr>
-            <td class="p-1">郵便番号(ハイフンなし)</td>
-            <td class="p-1"><%= f.text_field :postal_code, placeholder: "0000000" %></td>
-          </tr>
-          <tr>
-            <td class="p-1">住所</td>
-            <td class="p-1"><%= f.text_field :address, size:"60*20", placeholder: "東京都新宿区新宿〇丁目〇−〇〇 成信ビル 〇階" %></td>
-          </tr>
-          <tr>
-            <td class="p-1">宛名</td>
-            <td class="p-1"><%= f.text_field :name, placeholder: "へのへのもへじ" %></td>
-            <td class="pl-5"><%= f.submit '変更内容を保存',class: "btn btn-success" %></td>
-          </tr>
-        </tbody>
+      <table class="table-borderless">
+        <tr>
+          <td class="p-1">郵便番号(ハイフンなし)</td>
+          <td class="p-1"><%= f.text_field :postal_code, placeholder: "0000000" %></td>
+        </tr>
+        <tr>
+          <td class="p-1">住所</td>
+          <td class="p-1"><%= f.text_field :address, size:"50*20", placeholder: "東京都新宿区新宿〇丁目〇−〇〇 成信ビル 〇階" %></td>
+        </tr>
+        <tr>
+          <td class="p-1">宛名</td>
+          <td class="p-1"><%= f.text_field :name, placeholder: "へのへのもへじ" %></td>
+          <td class="pl-5"><%= f.submit '変更内容を保存',class: "btn btn-success" %></td>
+        </tr>
       </table>
      <% end %>
   </div>
