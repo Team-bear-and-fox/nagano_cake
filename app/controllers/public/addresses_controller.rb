@@ -2,7 +2,7 @@ class Public::AddressesController < ApplicationController
   before_action :authenticate_customer!,{only: [:index, :create, :edit, :update, :destroy]}
   def index
     @address = Address.new
-    @addresses = Address.all
+    @addresses = Address.all.where(customer_id: current_customer.id)
   end
 
   def create

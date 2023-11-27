@@ -1,13 +1,13 @@
 <div class="genre_search">
-  <table border="1" style="border-collapse: collapse">
-    <thead>
+  <table class="table-borderless">
+    <tr>
       <th class="font-weight-bold text-center pl-4 pr-4">ジャンル検索</th>
-    </thead>
+    </tr>
     <%= form_with url: genre_search_path, method: :get do |f| %>
       <% genres.each do |genre| %>
-        <tbody>
+        <tr>
           <td class="text-center p-1"><%= link_to genre.name, genre_search_path(genre_id: genre.id), method: :get %></td>
-        </tbody>
+        </tr>
       <% end %>
     <% end %>
   </table>
