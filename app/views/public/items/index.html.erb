@@ -1,34 +1,24 @@
-<div class="container">
-  <div class="row">
-    <div class="col-3"></div>
-    <div class="col-8">
-      <h3 class="font-weight-bold">商品一覧(全<%= @items.count %>件)</h3>
-      <table class="table table-borderless">
-        <thead>
-          <tr>
-          </tr>
-        </thead>
-        <tbody>
-           <% @item.each_slice(4) do |items| %>
-            <tr>
-              <% items.each do |item| %>
-                <td>
-                  <%= link_to item_path(item.id) do %>
-                  <div class="bg-white d-block mr-3 ml-3" >
-                    <%= image_tag item.get_image, :size =>'160x160' %>
-                    <p><%= item.name %></p>
-                    <p>￥<%= item.add_tax_value.to_s(:delimited) %></p>
-                  </div>
-                  <% end %>
-                </td>
-              <% end %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <div class="pagination justify-content-center">
-         <%= paginate @item %><!--変わるかも-->
-      </div>
-    </div>
+<div class="container mt-2">
+ <div class="row">
+  <div class="col-2">
+   <%= render 'genre', genres: @genres %>
   </div>
+  <div class="col-8">
+   <h3 class="font-weight-bold">商品一覧(全<%= @items_sale.total_count %>件)</h3>
+     <% @items_sale.each_slice(4) do |items| %>
+       <% items.each do |item| %>
+         <%= link_to item_path(item.id) do %>
+         <div class="bg-white d-block mr-3 ml-3" style="width:160px" >
+          <%= image_tag item.get_image, :size =>'160x160' %>
+          <p><%= item.name %></p>
+          <p>￥<%= item.add_tax_value.to_s(:delimited) %></p>
+         </div>
+         <% end %>
+       <% end %>
+     <% end %>
+   <div class="pagination justify-content-center">
+    <%= paginate @items_sale %>
+   </div>
+  </div>
+ </div>
 </div>
