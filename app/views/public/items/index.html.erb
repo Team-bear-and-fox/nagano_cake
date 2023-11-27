@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-2">
   <div class="row">
     <div class="col-2">
       <%= render 'public/items/genre', genres: @genres %>
@@ -24,13 +24,14 @@
                   </div>
                 </td>
               <% end %>
-            </tr>
+            <% end %>
           <% end %>
         </tbody>
       </table>
-      <div class="pagination justify-content-center">
-         <%= paginate @items_sale %><!--変わるかも-->
       </div>
+    </div>
+    <div class="pagination justify-content-center">
+      <%= paginate @items_sale %><!--変わるかも-->
     </div>
   </div>
 </div>
