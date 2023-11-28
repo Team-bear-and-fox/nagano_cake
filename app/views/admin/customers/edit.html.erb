@@ -1,0 +1,56 @@
+<div class="container-fluid mt-2">
+  <h5 class="font-weight-bold w-25 text-center ml-5"><%= @customer.last_name %><%=@customer.first_name %>さんの会員情報編集</h5>
+  <div class="row mt-3">
+    <div class="col-8 mx-5">
+      <%= form_with model: @customer, url: admin_customer_path, local: true do |f| %>
+        <table class="table lg ml-5 table-borderless">
+          <tr>
+            <td><b>会員ID</b></td>
+            <td><%= @customer.id %></td>
+          </tr>
+          <tr>
+            <td><b><%= f.label :氏名 %></b></td>
+            <td> <%= f.text_field :last_name, autofocus: true %>  <%= f.text_field :first_name, autofocus: true %></td>
+          </tr>
+          <tr>
+            <td><b><%= f.label :フリガナ %></b></td>
+            <td><%= f.text_field :last_name_kana, autofocus: true %> <%= f.text_field :first_name_kana, autofocus: true %></td>
+          </tr>
+          <tr>
+            <td><b><%= f.label :郵便番号 %></b></td>
+            <td><%= f.text_field :postal_code, autofocus: true %></td>
+          </tr>
+          <tr>
+            <td><b><%= f.label :住所 %></b></td>
+            <td><%= f.text_field :address, autofocus: true %></td>
+          </tr>
+          <tr>
+            <td><b><%= f.label :電話番号 %></b></td>
+            <td><%= f.text_field :phone_number, autofocus: true %></td>
+          </tr>
+          <tr>
+            <td><b><%= f.label :メールアドレス %></b></td>
+            <td><%= f.text_field :email, autofocus: true %></td>
+          </tr>
+
+          <tr>
+            <td><b><%= f.label :会員ステータス %></b></td>
+            <td>
+              <%= f.radio_button :is_active, true %>
+              <%= f.label :有効 %>
+              <%= f.radio_button :is_active, false %>
+              <%= f.label :退会 %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= f.submit "変更を保存" ,class: 'btn btn-success' %>
+            </td>
+            <td></td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
+

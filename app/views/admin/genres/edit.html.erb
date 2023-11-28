@@ -1,0 +1,17 @@
+<div class="container mt-3">
+ <h5 class="font-weight-bold w-25 text-center ml-5">ジャンル編集</h5>
+ <%= render 'error_messages', genre: @genre %>
+  <div class="row">
+   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+    <%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
+      <table class="table-borderless">
+        <tr>
+          <td><h7 class="font-weight-bold">ジャンル名</h7></td>
+          <td class="p-5"><%= f.text_field :name %></td>
+          <td><%= f.submit "変更を保存" , class:"btn btn-success"%></td>
+        </tr>
+      </table>
+    <% end %>
+   </div>
+  </div>
+</div>

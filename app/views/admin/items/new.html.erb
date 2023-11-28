@@ -1,0 +1,61 @@
+<div class="container-fluid mt-2">
+  <h5 class="font-weight-bold w-25 text-center ml-5">商品新規登録</h5>
+  <div class="row mt-3 mx-auto">
+    <div class="col-lg-7 mx-auto">
+      <%= render 'error_messages', item: @item %>
+      <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <td><b>商品画像</b></td>
+              <td><%= f.file_field :image, accept: "image/*" %></td>
+            </tr>
+            <tr>
+              <td><b>商品名</b></td>
+              <td class="form-group py-1">
+                <%= f.text_field :name, placeholder:"商品名", class: "form-control" %>
+              </td>
+            </tr>
+            <tr>
+              <td><b>商品説明</b></td>
+              <td class="form-group">
+                <%= f.text_area :explanation, placeholder:"ここに説明文を記述します", rows: 5, class: "form-control" %>
+              </td>
+            </tr>
+            <tr>
+              <td><b>ジャンル</b></td>
+              <td class="form-group">
+                <%= f.collection_select :genre_id, Genre.all, :id, :name, { include_blank: "--選択してください--" }, { class: "form-control" }%>
+              </td>
+            </tr>
+            <tr>
+              <td><b>税抜価格</b></td>
+              <td class="form-group">
+                <div class="input-group">
+                  <%= f.text_field :value, placeholder:"1000", class: "form-control" %>
+                  <div class="input-group-append">
+                    <p> 円</p>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><b>販売ステータス</b></td>
+              <td class="form-check">
+                <%= f.radio_button :is_on_sale, true %>
+                <%= f.label :"販売中" %>
+                <%= f.radio_button :is_on_sale, false %>
+                <%= f.label :"販売停止中" %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-center">
+          <%= f.submit '新規登録', class: 'btn btn-success' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
